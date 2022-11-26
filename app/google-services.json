@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "366532272274",
+    "firebase_url": "https://survivorio-28711-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "survivorio-28711",
+    "storage_bucket": "survivorio-28711.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366532272274:android:b540d71dd47fb9e48d864b",
+        "android_client_info": {
+          "package_name": "com.example.cuoiki_android_lythuyet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366532272274-eso2sll5u6balpt81q1iai169cgc3aqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2_ivBgW8kq4keXLC_kUJS9M3nXFAS8KY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366532272274-eso2sll5u6balpt81q1iai169cgc3aqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

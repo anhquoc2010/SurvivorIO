@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_page"
+        android:enabled="true"
+        android:icon="@drawable/home_inactive"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/booking_page"
+        android:enabled="true"
+        android:icon="@drawable/booking_inactive"
+        android:title="@string/bookings" />
+    <item
+        android:id="@+id/inbox_page"
+        android:enabled="true"
+        android:icon="@drawable/inbox_inactive"
+        android:title="@string/inbox" />
+
+    <item
+        android:id="@+id/profile_page"
+        android:enabled="true"
+        android:icon="@drawable/profile_circle_inactive"
+        android:title="@string/my_profile" />
+</menu>

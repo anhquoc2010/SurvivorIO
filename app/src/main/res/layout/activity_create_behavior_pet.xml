@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E3E3E3"
+    tools:context=".CreateBehaviorPetActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F4F4F4">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/btn_back_to_createpet"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_back_arrow_black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Pet's behavior and care"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/inter"
+                android:text="Let's share with pet's behavior and care instructions"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_pet_behavior"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="Pet's behavior include..."
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:textSize="18sp"
+                android:padding="5dp"
+                android:text="Leash trained"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:text="Digs in the dirt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:text="Tries to eat things"
+                app:layout_constraintStart_toEndOf="@+id/checkBox2"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:textSize="18sp"
+                android:padding="5dp"
+                android:text="Pulls in the leash"
+                app:layout_constraintStart_toEndOf="@+id/checkBox"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:text="Scared of traffic/loud noises"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:text="Jumps on people"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:text="Friendly with dog"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/checkBox5"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:text="Friendly with cat"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:text="Friendly with small animals"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_radio_pick_behavior"
+                android:button="@null"
+                android:fontFamily="@font/inter"
+                android:padding="5dp"
+                android:text="Active"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/checkBox6"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox8" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#F4F4F4">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_heart"
+                android:drawablePadding="5dp"
+                android:text="Pet's care info:"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Medication?"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="20sp"
+                        android:layout_margin="8dp"
+                        />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_margin="8dp"
+                            android:text="Yes"
+                            android:textSize="20sp"
+                            android:layoutDirection="rtl"
+                            android:padding="10dp"
+                            android:button="@null"
+                            android:background="@drawable/bg_radio_button_yes_no"/>
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_margin="8dp"
+                            android:text="No"
+                            android:textSize="20sp"
+                            android:layoutDirection="rtl"
+                            android:padding="10dp"
+                            android:button="@null"
+                            android:background="@drawable/bg_radio_button_yes_no"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Vaccinated?"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="20sp"
+                        android:layout_margin="8dp"
+                        />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_margin="8dp"
+                            android:text="Yes"
+                            android:textSize="20sp"
+                            android:layoutDirection="rtl"
+                            android:padding="10dp"
+                            android:button="@null"
+                            android:background="@drawable/bg_radio_button_yes_no"/>
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_margin="8dp"
+                            android:text="No"
+                            android:textSize="20sp"
+                            android:layoutDirection="rtl"
+                            android:padding="10dp"
+                            android:button="@null"
+                            android:background="@drawable/bg_radio_button_yes_no"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sprayed/Neutered?"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="20sp"
+                        android:layout_margin="8dp"
+                        />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_margin="8dp"
+                            android:text="Yes"
+                            android:textSize="20sp"
+                            android:layoutDirection="rtl"
+                            android:padding="10dp"
+                            android:button="@null"
+                            android:background="@drawable/bg_radio_button_yes_no"/>
+                        <RadioButton
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:layout_margin="8dp"
+                            android:text="No"
+                            android:textSize="20sp"
+                            android:layoutDirection="rtl"
+                            android:padding="10dp"
+                            android:button="@null"
+                            android:background="@drawable/bg_radio_button_yes_no"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_next_add_BehaviorCare"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#336666"
+                android:shadowRadius="10"
+                android:text="Next"
+                android:textColor="#F4F4F4"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

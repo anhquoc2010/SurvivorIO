@@ -24,4 +24,12 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorOnPrimary">@color/bold_green</item>
     </style>
+    <style name="Theme.CuoiKi_Android_LyThuyet.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.CuoiKi_Android_LyThuyet.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.CuoiKi_Android_LyThuyet.PopupOverlay"
+        parent="ThemeOverlay.AppCompat.Light" />
 </resources>

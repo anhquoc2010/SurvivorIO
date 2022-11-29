@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/booking_active.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/booking_inactive.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/home_active.xml" value="0.124" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/home_inactive.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/inbox_active.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/inbox_inactive.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/profile_circle_active.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/drawable/profile_circle_inactive.xml" value="0.1885" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/font/inter.xml" value="0.23125" />
+        <entry key="..\:/HOCTAP/Nam3-HK1/LTdidong/PetBooking/SurvivorIO/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20104166666666667" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

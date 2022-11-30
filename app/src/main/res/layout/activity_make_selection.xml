@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginTop="50dp"
-            android:background="@color/lightWhite"
+            android:background="@color/inactive"
             android:padding="10dp">
 
 
@@ -82,7 +82,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent" />
+                android:background="@android:color/transparent" />
 
 
         </RelativeLayout>
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginTop="20dp"
-            android:background="@color/lightWhite"
+            android:background="@color/inactive"
             android:padding="10dp">
 
 
@@ -130,7 +130,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent" />
+                android:background="@android:color/transparent" />
 
 
         </RelativeLayout>

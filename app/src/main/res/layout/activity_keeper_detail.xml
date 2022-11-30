@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KeeperDetailActivity"
+    android:background="#ECEAEA"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="446dp"
+        android:background="#FFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:background="@drawable/bg_keeper_detail">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_arrow_back_ios_24" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="280dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_bookmark_border_24" />
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="130dp"
+            android:src="@drawable/item_keeper" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="200dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Message"
+            android:backgroundTint="@color/bold_green"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="CaisBuas"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="280dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="+4 years experience"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="I can help you to take care of pets"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="Veterinary Degree"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="360dp"
+            android:drawableLeft="@drawable/ic_location"
+            android:text="0,2 km away from you"
+            android:fontFamily="@font/inter"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="400dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="Services"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="80dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="Details"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="80dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="Reviews"
+                 />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" About me"
+            android:fontFamily="@font/inter_bold"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_services"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/inter"
+            android:text="I've been taken care of pet for 4 year..."/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Caregiver skills"
+            android:fontFamily="@font/inter_bold"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_services"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/inter"
+            android:padding="10dp"
+            android:text="Have a background in animal healtcare"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/inter"
+            android:padding="10dp"
+            android:text="Have a background in animal healtcare"/>
+    </LinearLayout>
+
+</LinearLayout>

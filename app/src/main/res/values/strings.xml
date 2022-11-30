@@ -6,6 +6,19 @@
     <string name="bookings">Bookings</string>
     <string name="inbox">Inbox</string>
     <string name="my_profile">My profile</string>
+    <string name="text_screen">Create an account and access thousand\nof cool stuffs</string>
+
+    <string name="heading_one">Quick &amp; Easy Payments</string>
+    <string name="heading_two">Instant Notifications</string>
+    <string name="heading_three">Cashless Payment</string>
+    <string name="heading_fourth">Pay Anywhere</string>
+
+    <string name="desc_one">Grow your Business By Accepting Card Payments with The New Card Reader</string>
+    <string name="desc_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="desc_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="desc_fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+
+    <string name="forget_password_detail">Provide your account`s email for which you want\nto reset your password! </string>
     <string name="login">Login</string>
     <string name="title_activity_create_info_pet">CreateInfoPetActivity</string>
     <string name="large_text">

@@ -6,4 +6,7 @@
     <color name="variant_light_green">#009a61</color>
     <color name="black">#141415</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="inactive">#C4C4C4</color>
+
+
 </resources>

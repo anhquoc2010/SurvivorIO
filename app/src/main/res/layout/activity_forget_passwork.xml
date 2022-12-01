@@ -92,7 +92,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <Button
                 android:id="@+id/forget_password_next_btn"
                 android:layout_width="match_parent"

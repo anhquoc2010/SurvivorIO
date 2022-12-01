@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +20,8 @@ public class ScreenActivity extends AppCompatActivity {
 
     ViewPager mSLideViewPager;
     LinearLayout mDotLayout;
-    Button backbtn, nextbtn, skipbtn;
+    Button skipbtn;
+    ImageView imgv_next;
 
     TextView[] dots;
     ViewPagerAdapter viewPagerAdapter;
@@ -30,24 +32,23 @@ public class ScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        backbtn = findViewById(R.id.btn_back);
-        nextbtn = findViewById(R.id.btn_next);
         skipbtn = findViewById(R.id.btn_skip);
+        imgv_next = findViewById(R.id.imgv_next);
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    //    backbtn.setOnClickListener(new View.OnClickListener() {
+     //       @Override
+    //        public void onClick(View v) {
+//
+   //             if (getitem(0) > 0){
+//
+    //                mSLideViewPager.setCurrentItem(getitem(-1),true);
 
-                if (getitem(0) > 0){
+     //           }
+//
+     //       }
+      //  });
 
-                    mSLideViewPager.setCurrentItem(getitem(-1),true);
-
-                }
-
-            }
-        });
-
-        nextbtn.setOnClickListener(new View.OnClickListener() {
+        imgv_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -120,15 +121,15 @@ public class ScreenActivity extends AppCompatActivity {
 
             setUpindicator(position);
 
-            if (position > 0){
+      //      if (position > 0){
+//
+      //          backbtn.setVisibility(View.VISIBLE);
 
-                backbtn.setVisibility(View.VISIBLE);
+      //      }else {
 
-            }else {
+       //         backbtn.setVisibility(View.INVISIBLE);
 
-                backbtn.setVisibility(View.INVISIBLE);
-
-            }
+       //     }
 
         }
 

@@ -16,14 +16,19 @@
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/drawable/inbox_inactive.xml" value="0.154" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/drawable/profile_circle_active.xml" value="0.154" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/drawable/profile_circle_inactive.xml" value="0.154" />
-        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_forget_passwork.xml" value="0.16" />
-        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_create_pet.xml" value="0.24003623188405798" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_forget_passwork.xml" value="0.264" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_item_owner_request.xml" value="0.24003623188405798" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_keeper_detail.xml" value="0.24003623188405798" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_main.xml" value="0.2210144927536232" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_make_selection.xml" value="0.2210144927536232" />
-        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_screen.xml" value="0.1" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_pet_detail.xml" value="0.24003623188405798" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_request_detail.xml" value="0.4" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_screen.xml" value="0.264" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_screen2.xml" value="0.2210144927536232" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_set_new_password.xml" value="0.2210144927536232" />
-        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_signup.xml" value="0.2210144927536232" />
+        <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_started.xml" value="0.2210144927536232" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/activity_success_message.xml" value="0.2210144927536232" />
         <entry key="..\:/Study/HocKy122/Lap Trinh DTDD/PETBooking/SurvivorIO/app/src/main/res/layout/fragment_booking.xml" value="0.2210144927536232" />

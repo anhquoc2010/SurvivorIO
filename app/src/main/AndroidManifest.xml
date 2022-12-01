@@ -49,6 +49,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".CreatePetActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SettingProfileActivity"
             android:exported="false">
             <meta-data

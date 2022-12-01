@@ -84,6 +84,7 @@
                     android:src="@drawable/ic_male_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -102,82 +103,112 @@
                 android:layout_width="match_parent"
                 android:layout_height="105dp"
                 android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:orientation="horizontal"
-                android:weightSum="3"
                 android:padding="5dp"
+                android:weightSum="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@+id/textView7">
 
                 <LinearLayout
                     android:layout_width="100dp"
                     android:layout_height="90dp"
-                    android:layout_weight="1"
                     android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_liner_stroke_only"
                     android:gravity="center"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weight:"
                         android:fontFamily="@font/inter"
-                        android:textSize="18sp"/>
+                        android:text="Weight:"
+                        android:textSize="18sp" />
+
                     <TextView
                         android:id="@+id/tv_weightInfoDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weight"
                         android:fontFamily="@font/inter_bold"
-                        android:textSize="18sp"/>
+                        android:text="Weight"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="100dp"
                     android:layout_height="90dp"
-                    android:layout_weight="1"
                     android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_liner_stroke_only"
                     android:gravity="center"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Height:"
                         android:fontFamily="@font/inter"
-                        android:textSize="18sp"/>
+                        android:text="Height:"
+                        android:textSize="18sp" />
+
                     <TextView
                         android:id="@+id/tv_heightInfoDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Height"
                         android:fontFamily="@font/inter_bold"
-                        android:textSize="18sp"/>
+                        android:text="Height"
+                        android:textSize="18sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="100dp"
                     android:layout_height="90dp"
-                    android:layout_weight="1"
                     android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_liner_stroke_only"
                     android:gravity="center"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Color:"
                         android:fontFamily="@font/inter"
-                        android:textSize="18sp"/>
+                        android:text="Color:"
+                        android:textSize="18sp" />
+
                     <TextView
                         android:id="@+id/tv_colorInfoDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weight"
                         android:fontFamily="@font/inter_bold"
-                        android:textSize="18sp"/>
+                        android:text="Weight"
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
+
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#f4f4f4"
+                android:background="@drawable/bg_circle_img_btn"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_circle_img_btn"
+                android:backgroundTint="#f4f4f4"
+                android:src="@drawable/ic_arrow_back_imgbtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

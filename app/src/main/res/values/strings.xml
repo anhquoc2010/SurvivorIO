@@ -7,4 +7,25 @@
     <string name="inbox">Inbox</string>
     <string name="my_profile">My profile</string>
     <string name="login">Login</string>
+    <string name="tv_bio">PearUK is Le Anh Quoc 🍐🍐\nStanding at airport Waiting for train 🚂 ✈️</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="count">%1$d</string>
+    <string name="pets">Pets</string>
+    <string name="friends">Friends</string>
+    <string name="about_me">About me</string>
+    <string name="edit">Edit</string>
+    <string name="birth_date">Birth date:</string>
+    <string name="my_birth">20 Oct 2002</string>
+    <string name="gender_">Gender:</string>
+    <string name="male">Male</string>
+    <string name="tv_description">As an animal lover, I like to believe that the love we feel for animals is unconditional 💕 🐕 🐈 🌸</string>
+    <string name="gallery">Gallery</string>
+    <string name="item_1">Item 1</string>
+    <string name="requests">Requests</string>
+    <string name="hello_1_s">Hello, %1$s!</string>
+    <string name="make_somethings_great">Make somethings great:</string>
+    <string name="everyday_s_quote">Everyday\'s Quote:</string>
+    <string name="quote">"Design is not just what it looks like and feels like. Design is how it works."</string>
+    <string name="people">People</string>
 </resources>

@@ -6,4 +6,5 @@
     <color name="variant_light_green">#009a61</color>
     <color name="black">#141415</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray_border">#E6E8EC</color>
 </resources>

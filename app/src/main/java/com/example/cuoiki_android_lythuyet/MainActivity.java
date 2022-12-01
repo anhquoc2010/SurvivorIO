@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home_page:
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    }
                     getSupportFragmentManager().beginTransaction().setCustomAnimations(
                                     R.anim.slide_in,  // enter
                                     R.anim.fade_out,  // exit
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.booking_page:
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    }
                     getSupportFragmentManager().beginTransaction().setCustomAnimations(
                                     R.anim.slide_in,  // enter
                                     R.anim.fade_out,  // exit
@@ -60,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.inbox_page:
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    }
                     getSupportFragmentManager().beginTransaction().setCustomAnimations(
                                     R.anim.slide_in,  // enter
                                     R.anim.fade_out,  // exit
@@ -71,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.profile_page:
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                    }
                     getSupportFragmentManager().beginTransaction().setCustomAnimations(
                                     R.anim.slide_in,  // enter
                                     R.anim.fade_out,  // exit

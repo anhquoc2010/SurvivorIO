@@ -2,15 +2,13 @@ package com.example.cuoiki_android_lythuyet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
 
-public class PetDetailActivity extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pet_detail);
-
+        setContentView(R.layout.activity_edit_profile);
     }
 }

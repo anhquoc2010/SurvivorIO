@@ -12,7 +12,8 @@
         android:id="@+id/back"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginStart="32dp"
         android:background="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +24,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="125dp"
         android:text="Welcome!"
         android:textColor="@color/variant_light_green"
         android:textSize="35sp"
@@ -91,8 +92,10 @@
             android:id="@+id/btn_forgetpass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:textAlignment="textEnd"
             android:background="#00000000"
-            android:text="Forget Your Password?"
+            android:text="Forgot Your Password?"
             android:textSize="11dp" />
 
         <Button
@@ -101,6 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn"
+            android:layout_marginTop="26dp"
             android:text="Sign In"
             android:textColor="#ffffff"
             android:textSize="24sp"
@@ -158,7 +162,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Social Media Signin"
+            android:text="Social Media Sign In"
             android:textAlignment="center"
             android:textColor="@color/variant_bold_green" />
 

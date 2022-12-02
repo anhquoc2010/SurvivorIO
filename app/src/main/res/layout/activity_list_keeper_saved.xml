@@ -103,8 +103,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lvKeeperSaved"
+            tools:listitem="@layout/item_list_keeper_saved"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

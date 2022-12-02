@@ -51,7 +51,7 @@ public class BookingFragment extends Fragment {
                                     R.anim.fade_in,   // popEnter
                                     R.anim.slide_out  // popExit
                             )
-                            .replace(R.id.fragment_container, new RequetsFragment())
+                            .replace(R.id.fragment_container, new RequestsFragment())
                             .addToBackStack(null)
                             .commit();
                     return true;

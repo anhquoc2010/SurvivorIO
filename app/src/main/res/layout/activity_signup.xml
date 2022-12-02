@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Passwork"
+            android:hint="Password"
             android:layout_marginTop="8dp"
             app:hintTextColor="@color/black"
             app:boxStrokeColor="@color/black"
@@ -105,7 +105,7 @@
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_Passwork"
+                android:id="@+id/et_Password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/black"
@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="RePasswork"
+            android:hint="Re-Enter Password"
             android:layout_marginTop="8dp"
             app:hintTextColor="@color/black"
             app:boxStrokeColor="@color/black"
@@ -136,7 +136,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_signup"
             style="@android:style/Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
 
             android:layout_marginBottom="8dp"
             android:background="@drawable/btn"
-            android:text="SignUp"
+            android:text="Sign Up"
             android:textColor="#ffffff"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -249,7 +249,7 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/btn_signup"
+                android:id="@+id/btn_signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00000000"

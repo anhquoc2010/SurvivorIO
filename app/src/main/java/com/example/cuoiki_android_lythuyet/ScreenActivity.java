@@ -30,7 +30,7 @@ public class ScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_screen);
 
         skipbtn = findViewById(R.id.btn_skip);
         imgv_next = findViewById(R.id.imgv_next);
@@ -69,10 +69,17 @@ public class ScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 Intent i = new Intent(ScreenActivity.this,ScreenActivity2.class);
                 startActivity(i);
                 finish();
+
+            }
+        });
+
+        skipbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
 
             }
         });

@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cuoiki_android_lythuyet.EditProfile;
 import com.example.cuoiki_android_lythuyet.LoginActivity;
 import com.example.cuoiki_android_lythuyet.R;
+import com.example.cuoiki_android_lythuyet.SettingProfileActivity;
 import com.example.cuoiki_android_lythuyet.adapter.GalleryAdapter;
 import com.example.cuoiki_android_lythuyet.adapter.MiniPetAdapter;
 import com.example.cuoiki_android_lythuyet.data.MemoryData;
@@ -38,9 +40,12 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
 
         binding.ibLogout.setOnClickListener(v -> {
-            MemoryData.clearData(getContext());
-            firebaseAuth.signOut();
-            getActivity().finish();
+            startActivity(new Intent(getActivity(), SettingProfileActivity.class));
+        });
+
+        binding.cvEditProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), EditProfile.class);
+            startActivity(intent);
         });
 
         SinhVien sinhVien = (SinhVien) getActivity().getIntent().getSerializableExtra("sinhVienNe");

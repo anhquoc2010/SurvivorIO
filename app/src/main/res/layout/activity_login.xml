@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn"
-            android:text="SignUp"
+            android:text="Sign In"
             android:textColor="#ffffff"
             android:textSize="24sp"
             android:textStyle="bold" />

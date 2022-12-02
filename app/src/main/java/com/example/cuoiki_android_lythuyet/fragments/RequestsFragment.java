@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 
 import com.example.cuoiki_android_lythuyet.R;
 
-public class RequetsFragment extends Fragment {
+public class RequestsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_requets, container, false);
+        return inflater.inflate(R.layout.fragment_requests, container, false);
     }
 }

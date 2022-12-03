@@ -19,10 +19,10 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     int images[] = {
 
-            R.drawable.started_dog,
-            R.drawable.started_dog,
-            R.drawable.started_dog,
-            R.drawable.started_dog
+            R.drawable.boarding1,
+            R.drawable.boarding2,
+            R.drawable.boarding3,
+            R.drawable.boarding4
 
     };
 

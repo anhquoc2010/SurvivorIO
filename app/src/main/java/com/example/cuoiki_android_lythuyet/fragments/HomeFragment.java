@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cuoiki_android_lythuyet.CreatePetActivity;
+import com.example.cuoiki_android_lythuyet.PetListActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.databinding.FragmentHomeBinding;
 
@@ -24,7 +25,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         binding.cvPets.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), CreatePetActivity.class);
+            Intent intent = new Intent(getActivity(), PetListActivity.class);
             startActivity(intent);
         });
 

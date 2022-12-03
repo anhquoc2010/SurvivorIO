@@ -9,4 +9,5 @@
     <color name="gray_border">#E6E8EC</color>
     <color name="inactive">#C4C4C4</color>
     <color name="background">#F0F4F3</color>
+    <color name="gray_dark">#EDEDED</color>
 </resources>

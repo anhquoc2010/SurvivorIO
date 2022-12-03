@@ -40,4 +40,10 @@ public class PetListActivity extends AppCompatActivity {
         pets.add(new Pet("Kinding", "Calmdog", true, 3, 140.2, 70.2, "Green", "kaka", R.drawable.pet6));
         pets.add(new Pet("Hem", "England Short", true, 4, 140.2, 70.2, "Light Yellow", "hihi", R.drawable.pet3));
     }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (petAdapter != null)
+            petAdapter.release();
+    }
 }

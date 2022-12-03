@@ -146,4 +146,5 @@
     <string name="color_value">%1$s</string>
     <string name="pet_behavior">Pet\'s behavior</string>
     <string name="pet_gallery">Pet\'s Gallery</string>
+    <string name="mail">petbooking@gmail.com</string>
 </resources>

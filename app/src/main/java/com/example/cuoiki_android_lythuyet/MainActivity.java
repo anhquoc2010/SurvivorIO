@@ -1,6 +1,7 @@
 package com.example.cuoiki_android_lythuyet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Build;
@@ -177,5 +178,14 @@ public class MainActivity extends AppCompatActivity {
 
         currentUserId = firebaseAuth.getCurrentUser().getUid();
         databaseReference.child("Users").child(currentUserId).child("userState").updateChildren(hashMap);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof HomeFragment) {
+            finish();
+        } else {
+            binding.bottomNavigation.setSelectedItemId(R.id.home_page);
+        }
     }
 }

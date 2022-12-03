@@ -64,7 +64,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                     String receiverprofileimage = dataSnapshot.child("image").getValue().toString();
                     Picasso.get().load(receiverprofileimage).placeholder(R.drawable.profile_circle_inactive).into(holder.receiverprofileimage);
                 } else {
-                    holder.receiverprofileimage.setImageResource(R.drawable.profile_circle_inactive);
+                    holder.receiverprofileimage.setImageResource(R.drawable.pet2);
                 }
             }
 
@@ -73,7 +73,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             }
         });
-
 
         holder.receivermessagetext.setVisibility(View.GONE);
         holder.receiverprofileimage.setVisibility(View.GONE);
@@ -90,11 +89,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         }
 
         if (fromuserid.equals(messagesenderid)) {
-            holder.itemView.setOnClickListener(v -> {
+            holder.sendermessagetext.setOnLongClickListener(v -> {
                 if (UserMessageList.get(position).getType().equals("text")) {
                     CharSequence options[] = new CharSequence[]
                             {
-                                    "Delete for me", "Cancel", "Delete for everyone"
+                                    "Delete for me", "Delete for everyone", "Cancel"
                             };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
@@ -102,21 +101,20 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                     builder.setItems(options, (dialog, which) -> {
                         if (which == 0) {
                             deleteSentMessage(position, holder);
-
                         } else if (which == 1) {
-                            //for cancel do not do anything
-                        } else if (which == 2) {
                             deleteMessageForEveryone(position, holder);
-
+                        } else if (which == 2) {
+                            //for cancel do not do anything
                         }
 
                     });
 
                     builder.show();
                 }
+                return true;
             });
         } else {
-            holder.itemView.setOnClickListener(v -> {
+            holder.receivermessagetext.setOnLongClickListener(v -> {
                 if (UserMessageList.get(position).getType().equals("text")) {
                     CharSequence options[] = new CharSequence[]
                             {
@@ -125,21 +123,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
                     builder.setTitle("Delete Message?");
-                    builder.setItems(options, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (which == 0) {
-                                deleteReceiveMessage(position, holder);
-
-                            } else if (which == 1) {
-                                //for cancel do not do anything
-                            }
-
+                    builder.setItems(options, (dialog, which) -> {
+                        if (which == 0) {
+                            deleteReceiveMessage(position, holder);
+                        } else if (which == 1) {
+                            //for cancel do not do anything
                         }
+
                     });
 
                     builder.show();
                 }
+                return true;
             });
         }
     }
@@ -155,7 +150,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                         notifyItemRangeChanged(position, UserMessageList.size());
                         Toast.makeText(holder.itemView.getContext(), "Message deleted...", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(holder.itemView.getContext(), "Error...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(holder.itemView.getContext(), "Error: " + task.getException(), Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -172,7 +167,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                         notifyItemRangeChanged(position, UserMessageList.size());
                         Toast.makeText(holder.itemView.getContext(), "Message deleted...", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(holder.itemView.getContext(), "Error...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(holder.itemView.getContext(), "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -187,21 +182,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                         DatabaseReference rootRef1 = FirebaseDatabase.getInstance().getReference();
                         rootRef1.child("Messages").child(UserMessageList.get(position).getTo())
                                 .child(UserMessageList.get(position).getFrom()).child(UserMessageList.get(position).getMessageID())
-                                .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            notifyItemRemoved(position);
-                                            UserMessageList.remove(position);
-                                            notifyItemRangeChanged(position, UserMessageList.size());
-                                            Toast.makeText(holder.itemView.getContext(), "Message deleted...", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(holder.itemView.getContext(), "Error...", Toast.LENGTH_SHORT).show();
-                                        }
+                                .removeValue().addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        notifyItemRemoved(position);
+                                        UserMessageList.remove(position);
+                                        notifyItemRangeChanged(position, UserMessageList.size());
+                                        Toast.makeText(holder.itemView.getContext(), "Message deleted...", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(holder.itemView.getContext(), "Error: " + task1.getException(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {
-                        Toast.makeText(holder.itemView.getContext(), "Error...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(holder.itemView.getContext(), "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -227,6 +219,5 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             receiverprofileimage = itemView.findViewById(R.id.sender_message_image);
         }
     }
-
 
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -36,16 +37,28 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnSignup.setOnClickListener(v -> sendUserToRegisterActivity());
 
         binding.btnLogin.setOnClickListener(v -> {
+            binding.progressBar.setVisibility(View.VISIBLE);
             String email = binding.editTextUsername.getText().toString();
             String password = binding.editTextPasswork.getText().toString();
 
+            //check login email, password, email valid, size password
+            //check sign up username, password, email, retype password, size password, email valid
             if (TextUtils.isEmpty(email)) {
+                binding.progressBar.setVisibility(View.GONE);
                 Toast.makeText(LoginActivity.this, "Please enter email...", Toast.LENGTH_SHORT).show();
             } else if (TextUtils.isEmpty(password)) {
+                binding.progressBar.setVisibility(View.GONE);
                 Toast.makeText(LoginActivity.this, "Please enter password...", Toast.LENGTH_SHORT).show();
+            } else if (password.length() < 6) {
+                binding.progressBar.setVisibility(View.GONE);
+                Toast.makeText(LoginActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.progressBar.setVisibility(View.GONE);
+                Toast.makeText(LoginActivity.this, "Please enter a valid email", Toast.LENGTH_SHORT).show();
             } else {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        binding.progressBar.setVisibility(View.GONE);
                         String currentUserId = firebaseAuth.getCurrentUser().getUid();
                         String deviceToken = FirebaseMessaging.getInstance().getToken().toString();
                         userRef.child(currentUserId).child("device_token").setValue(deviceToken)
@@ -56,8 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 });
                     } else {
+                        binding.progressBar.setVisibility(View.GONE);
                         String errorMessage = task.getException().toString();
-                        Toast.makeText(LoginActivity.this, "Error :" + errorMessage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Error: " + errorMessage, Toast.LENGTH_LONG).show();
                     }
                 });
             }

@@ -12,11 +12,9 @@ public class KeeperDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keeper_detail);
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle == null){
-            return;
-        }
-        Booking booking = (Booking) bundle.get("object_booking");
+
+
+
 
 
     }

@@ -105,7 +105,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lvKeeperSaved"
-            tools:listitem="@layout/item_list_keeper_saved"
+            tools:listitem="@layout/item_list_booking"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

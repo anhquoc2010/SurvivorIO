@@ -75,7 +75,7 @@ public class InboxFragment extends Fragment {
                                     image[0] = dataSnapshot.child("image").getValue().toString();
                                     Picasso.get().load(image[0]).placeholder(R.drawable.profile_circle_inactive).into(holder.profile_image);
                                 } else {
-                                    holder.profile_image.setImageResource(R.drawable.profile_circle_inactive);
+                                    holder.profile_image.setImageResource(R.drawable.pet2);
                                 }
                                 final String name = dataSnapshot.child("name").getValue().toString();
 
@@ -114,6 +114,7 @@ public class InboxFragment extends Fragment {
 
                 } else {
                     holder.itemView.setVisibility(View.GONE);
+                    holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
                 }
             }
 

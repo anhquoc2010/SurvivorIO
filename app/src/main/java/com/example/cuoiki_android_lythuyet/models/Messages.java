@@ -1,10 +1,9 @@
 package com.example.cuoiki_android_lythuyet.models;
 
 public class Messages {
-    private String from,message,type,to,messageID,time,date,name;
+    private String from, message, type, to, messageID, time, date, name;
 
-    public Messages()
-    {
+    public Messages() {
 
     }
 

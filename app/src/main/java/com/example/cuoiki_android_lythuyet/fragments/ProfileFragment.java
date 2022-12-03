@@ -1,5 +1,6 @@
 package com.example.cuoiki_android_lythuyet.fragments;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,10 +49,26 @@ public class ProfileFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         binding.ibLogout.setOnClickListener(v -> {
-            updateUserStatus("offline");
-            firebaseAuth.signOut();
-            sendUserToLoginActivity();
-            Toast.makeText(getActivity(), "Contacts logged out succuessfully...", Toast.LENGTH_SHORT).show();
+            //alert dialog
+            CharSequence options[] = new CharSequence[]
+                    {
+                            "Sign out", "Cancel"
+                    };
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
+            builder.setTitle("Are you sure you want to sign out?");
+            builder.setItems(options, (dialog, which) -> {
+                if (which == 0) {
+                    updateUserStatus("offline");
+                    firebaseAuth.signOut();
+                    sendUserToLoginActivity();
+                    Toast.makeText(getActivity(), "Contacts logged out Successfully...", Toast.LENGTH_SHORT).show();
+                } else if (which == 1) {
+                    //do nothing
+                }
+            });
+
+            builder.show();
         });
 
         binding.cvEditProfile.setOnClickListener(v -> {

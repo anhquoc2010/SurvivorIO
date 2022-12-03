@@ -132,4 +132,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="dot">•</string>
+    <string name="write_a_message">Write a message...</string>
 </resources>

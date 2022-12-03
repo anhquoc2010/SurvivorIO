@@ -1,29 +1,25 @@
 package com.example.cuoiki_android_lythuyet;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.cuoiki_android_lythuyet.data.MemoryData;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cuoiki_android_lythuyet.databinding.ActivityLoginBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.button.MaterialButton;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class LoginActivity extends AppCompatActivity {
 
-    ActivityLoginBinding binding;
-    private FirebaseAuth auth;
+    private ActivityLoginBinding binding;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +30,49 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        if (!MemoryData.getData(this).isEmpty()) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("uid", MemoryData.getData(this));
-            startActivity(intent);
-            finish();
-        }
+        firebaseAuth = FirebaseAuth.getInstance();
+        userRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
-        binding.btnLogin.setOnClickListener(v -> loginUser(binding.editTextUsername.getText().toString(), binding.editTextPasswork.getText().toString()));
+        binding.btnSignup.setOnClickListener(v -> sendUserToRegisterActivity());
 
-        binding.btnSignup.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SignupActivity.class);
-            startActivity(intent);
+        binding.btnLogin.setOnClickListener(v -> {
+            String email = binding.editTextUsername.getText().toString();
+            String password = binding.editTextPasswork.getText().toString();
+
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(LoginActivity.this, "Please enter email...", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.isEmpty(password)) {
+                Toast.makeText(LoginActivity.this, "Please enter password...", Toast.LENGTH_SHORT).show();
+            } else {
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        String currentUserId = firebaseAuth.getCurrentUser().getUid();
+                        String deviceToken = FirebaseMessaging.getInstance().getToken().toString();
+                        userRef.child(currentUserId).child("device_token").setValue(deviceToken)
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        sendUserToMainActivity();
+                                        Toast.makeText(LoginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    } else {
+                        String errorMessage = task.getException().toString();
+                        Toast.makeText(LoginActivity.this, "Error :" + errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         });
     }
 
-    private void loginUser(String textEmail, String textPassword) {
-        auth = FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(textEmail, textPassword).addOnCompleteListener(LoginActivity.this, task -> {
-            if (task.isSuccessful()) {
-                MemoryData.saveData(auth.getUid(), LoginActivity.this);
-                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
-            } else {
-                Log.w("TAG", "loginWithEmail:failure", task.getException());
-                Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void sendUserToMainActivity() {
+        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainIntent);
+        finish();
+    }
+
+    private void sendUserToRegisterActivity() {
+        Intent newUserIntent = new Intent(LoginActivity.this, SignupActivity.class);
+        startActivity(newUserIntent);
     }
 }

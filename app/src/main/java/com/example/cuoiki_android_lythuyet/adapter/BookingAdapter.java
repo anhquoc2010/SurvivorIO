@@ -1,6 +1,8 @@
 package com.example.cuoiki_android_lythuyet.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cuoiki_android_lythuyet.KeeperDetailActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.models.Booking;
 
@@ -23,9 +25,8 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     private Context mContext;
     private List<Booking> bookingList;
 
-    public BookingAdapter(Context mContext, List<Booking> bookingList) {
+    public BookingAdapter(Context mContext) {
         this.mContext = mContext;
-        this.bookingList = bookingList;
     }
 
     public void setData(List<Booking> list){
@@ -35,7 +36,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     @NonNull
     @Override
     public BookingAdapter.BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_booking,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.owner_request_row_item,parent,false);
         return  new BookingViewHolder(view);
     }
 
@@ -45,16 +46,27 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         if(booking == null){
             return;
         }
-        holder.tvNameBooking.setText(booking.getNameBooking());
-        holder.tvPriceBooking.setText(booking.getPriceBooking().toString());
-        holder.tvDistanceBooking.setText(booking.getDistanceBooking().toString());
-        holder.tvPreviewBooking.setText(booking.getPreviewBooking().toString());
-        holder.tvStarBooking.setText(booking.getStarBooking().toString());
+        holder.tvNameBooking.setText(booking.getName());
+        holder.tvPriceBooking.setText(booking.getPrice()+ " $");
+        holder.tvCalendarBooking.setText(booking.getCalendar()+" M");
+        holder.tvResponseBooking.setText(booking.getResponceBooking()+"responces");
         holder.imgvBooking.setImageResource(booking.getImgBooking());
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, RecyclerView.VERTICAL, false);
-        holder.rcvBooking.setLayoutManager(linearLayoutManager);
-
+        holder.itemBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickGotoDeTail(booking);
+            }
+        });
+    }
+    private void onClickGotoDeTail(Booking booking){
+        Intent intent = new Intent(mContext, KeeperDetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_booking", booking);
+        intent.putExtras(bundle);
+        mContext.startActivity(intent);
+    }
+    public void release(){
+        mContext = null;
     }
 
     @Override
@@ -67,19 +79,24 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
     public class BookingViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvNameBooking, tvPriceBooking, tvPreviewBooking, tvDistanceBooking, tvStarBooking;
+        TextView tvNameBooking, tvPriceBooking, tvResponseBooking, tvCalendarBooking;
         ImageView imgvBooking;
         RecyclerView rcvBooking;
+        LinearLayout itemBooking;
         public BookingViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNameBooking = itemView.findViewById(R.id.tv_name_booking);
-            tvPriceBooking = itemView.findViewById(R.id.tv_price_booking);
-            tvPreviewBooking = itemView.findViewById(R.id.tv_preview_booking);
-            tvDistanceBooking = itemView.findViewById(R.id.tv_distance_booking);
-            tvStarBooking = itemView.findViewById(R.id.tv_star_booking);
-            imgvBooking = itemView.findViewById(R.id.imgv_booking);
+            tvNameBooking = itemView.findViewById(R.id.tvName);
+            tvPriceBooking = itemView.findViewById(R.id.tvPrice);
+            tvResponseBooking = itemView.findViewById(R.id.tvResponse);
+            tvCalendarBooking = itemView.findViewById(R.id.tvCalendar);
+            imgvBooking = itemView.findViewById(R.id.img_request_booking);
             rcvBooking = itemView.findViewById(R.id.rcvBooking);
-
+            itemBooking = itemView.findViewById(R.id.item_request_booking);
+//tvNameBooking     tvName
+//tvResponseBooking     tvResponse
+//tvPriceBooking            tvPrice
+//tvCalendarBooking        tvCalendar
+//imgvBooking          img_request_booking
         }
     }
 

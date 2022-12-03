@@ -1,29 +1,31 @@
 package com.example.cuoiki_android_lythuyet.models;
 
-public class Booking {
+import com.google.type.DateTime;
 
-    String nameBooking;
+import java.io.Serializable;
+
+public class Booking implements Serializable {
+
+    String name;
     int imgBooking;
-    Double distanceBooking;
-    Double priceBooking;
-    Double starBooking;
-    Double previewBooking;
+    Double price;
+    int responceBooking;
+    String calendar;
 
-    public Booking(String nameBooking, int imgBooking, Double distanceBooking, Double priceBooking, Double starBooking, Double previewBooking) {
-        this.nameBooking = nameBooking;
+    public Booking(String name, int imgBooking, Double price, int responceBooking, String calendar) {
+        this.name = name;
         this.imgBooking = imgBooking;
-        this.distanceBooking = distanceBooking;
-        this.priceBooking = priceBooking;
-        this.starBooking = starBooking;
-        this.previewBooking = previewBooking;
+        this.price = price;
+        this.responceBooking = responceBooking;
+        this.calendar = calendar;
     }
 
-    public String getNameBooking() {
-        return nameBooking;
+    public String getName() {
+        return name;
     }
 
-    public void setNameBooking(String nameBooking) {
-        this.nameBooking = nameBooking;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getImgBooking() {
@@ -34,35 +36,27 @@ public class Booking {
         this.imgBooking = imgBooking;
     }
 
-    public Double getDistanceBooking() {
-        return distanceBooking;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setDistanceBooking(Double distanceBooking) {
-        this.distanceBooking = distanceBooking;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public Double getPriceBooking() {
-        return priceBooking;
+    public int getResponceBooking() {
+        return responceBooking;
     }
 
-    public void setPriceBooking(Double priceBooking) {
-        this.priceBooking = priceBooking;
+    public void setResponceBooking(int responceBooking) {
+        this.responceBooking = responceBooking;
     }
 
-    public Double getStarBooking() {
-        return starBooking;
+    public String getCalendar() {
+        return calendar;
     }
 
-    public void setStarBooking(Double starBooking) {
-        this.starBooking = starBooking;
-    }
-
-    public Double getPreviewBooking() {
-        return previewBooking;
-    }
-
-    public void setPreviewBooking(Double previewBooking) {
-        this.previewBooking = previewBooking;
+    public void setCalendar(String calendar) {
+        this.calendar = calendar;
     }
 }

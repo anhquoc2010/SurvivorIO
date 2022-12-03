@@ -4,11 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class KeeperDetailActivity extends AppCompatActivity {
+import com.example.cuoiki_android_lythuyet.models.Booking;
 
+public class KeeperDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keeper_detail);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle == null){
+            return;
+        }
+        Booking booking = (Booking) bundle.get("object_booking");
+
+
     }
 }

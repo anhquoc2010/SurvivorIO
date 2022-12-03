@@ -20,6 +20,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
             tools:ignore="ImageContrastCheck"
             tools:src="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
@@ -48,9 +49,9 @@
         android:textFontWeight="600"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toStartOf="@id/cv_unread"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@id/tv_name"
         app:layout_constraintTop_toBottomOf="@id/tv_name"
-        app:layout_constraintHorizontal_bias="0"
         tools:targetApi="p"
         tools:text="Loremghwqdjhgqwjhdgqhjwgdjhq qwjgdqwgdjqwgdk qjwqdjqwqwjeqgwejqwjegqwehjqwjeqqjwej qwdhqwkdqkwjdhkqwdkwkqdhqwkdqkwdqwkdqkwdk" />
 
@@ -58,9 +59,9 @@
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"
         tools:text="datetime" />
 
     <androidx.cardview.widget.CardView

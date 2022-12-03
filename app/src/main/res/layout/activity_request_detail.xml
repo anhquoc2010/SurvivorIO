@@ -7,7 +7,7 @@
     tools:context=".RequestDetail">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/img_btn_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"

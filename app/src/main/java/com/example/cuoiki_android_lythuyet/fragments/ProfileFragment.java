@@ -84,24 +84,24 @@ public class ProfileFragment extends Fragment {
 
     private void addPets() {
         pets = new ArrayList<>();
-//        pets.add(new Pet("Kileonmusk", "Hasky", true, 6, 45.5, 111.11, "Red", "gaugau", R.drawable.pet1));
-//        pets.add(new Pet("Shibaxianua", "Chihuahua", false, 12, 100.2, 150.12, "B&W", "grrrrr", R.drawable.pet2));
-//        pets.add(new Pet("Hanakem Cheese", "Maddog", false, 3, 15.6, 30.77, "White", "angang", R.drawable.pet3));
-//        pets.add(new Pet("Betting Helloyboy", "Beandog", true, 2, 140.2, 70.2, "Gray", "ecec", R.drawable.pet4));
-//        pets.add(new Pet("Brusk", "Cherry", false, 1, 140.2, 70.2, "Gray", "kiiiii", R.drawable.pet5));
+        pets.add(new Pet("Kileonmusk", "Hasky", true, 6, 45.5, 111.11, "Red", "gaugau", R.drawable.pet1));
+        pets.add(new Pet("Shibaxianua", "Chihuahua", false, 12, 100.2, 150.12, "B&W", "grrrrr", R.drawable.pet2));
+        pets.add(new Pet("Hanakem Cheese", "Maddog", false, 3, 15.6, 30.77, "White", "angang", R.drawable.pet3));
+        pets.add(new Pet("Betting Helloyboy", "Beandog", true, 2, 140.2, 70.2, "Gray", "ecec", R.drawable.pet4));
+        pets.add(new Pet("Brusk", "Cherry", false, 1, 140.2, 70.2, "Gray", "kiiiii", R.drawable.pet5));
     }
 
     private void addGallery() {
         images = new ArrayList<>();
-//        images.add(R.drawable.pet1);
-//        images.add(R.drawable.pet2);
-//        images.add(R.drawable.pet3);
-//        images.add(R.drawable.pet4);
-//        images.add(R.drawable.pet5);
-//        images.add(R.drawable.pet6);
-//        images.add(R.drawable.pet3);
-//        images.add(R.drawable.pet1);
-//        images.add(R.drawable.pet4);
+        images.add(R.drawable.pet1);
+        images.add(R.drawable.pet2);
+        images.add(R.drawable.pet3);
+        images.add(R.drawable.pet4);
+        images.add(R.drawable.pet5);
+        images.add(R.drawable.pet6);
+        images.add(R.drawable.pet3);
+        images.add(R.drawable.pet1);
+        images.add(R.drawable.pet4);
     }
 
     private void sendUserToLoginActivity() {

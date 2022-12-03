@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cuoiki_android_lythuyet.PetDetailActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.models.Pet;
 
@@ -51,12 +52,12 @@ public class MiniPetAdapter extends RecyclerView.Adapter<MiniPetAdapter.ViewHold
     }
 
     private void onClickDetailPet(Pet pet) {
-//        Intent intent = new Intent(context, PetDetailActivity.class);
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("pet", pet);
-//        intent.putExtras(bundle);
-//        context.startActivity(intent);
-//        ((Activity) context).overridePendingTransition(R.anim.slide_in, R.anim.fade_out);
+        Intent intent = new Intent(context, PetDetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("pet", pet);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+        ((Activity) context).overridePendingTransition(R.anim.slide_in, R.anim.fade_out);
     }
 
     @Override

@@ -345,7 +345,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tvName_request_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -366,7 +366,7 @@
         android:background="@drawable/outline_place_black_24dp"
         android:backgroundTint="#757373"
         app:layout_constraintStart_toEndOf="@+id/imageView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
     <TextView
         android:id="@+id/textView18"
@@ -377,7 +377,7 @@
         android:text="0,2 km away"
         android:textColor="#757373"
         app:layout_constraintStart_toEndOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -421,7 +421,7 @@
         android:textColor="#757373"
         android:layout_marginTop="42dp"
         app:layout_constraintStart_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
     <ImageView
         android:id="@+id/imageView16"
@@ -431,7 +431,7 @@
         android:background="@drawable/email"
         android:backgroundTint="#336666"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toEndOf="@+id/tvName_request_detail"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
@@ -456,7 +456,7 @@
         android:background="@drawable/call"
         android:backgroundTint="#336666"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toEndOf="@+id/tvName_request_detail"
         app:layout_constraintTop_toBottomOf="@+id/imageView16" />
 
     <TextView

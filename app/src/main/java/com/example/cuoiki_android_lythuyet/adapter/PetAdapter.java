@@ -1,6 +1,8 @@
 package com.example.cuoiki_android_lythuyet.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
-    private final Context context;
+    private Context context;
     private final ArrayList<Pet> petsList;
 
     public PetAdapter(Context context, ArrayList<Pet> petsList) {
@@ -39,7 +42,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         // Gán dữ liệu
         Pet pet = petsList.get(position);
 
@@ -56,6 +59,30 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
         holder.layoutPetItem.setOnClickListener(v -> {
             onClickDetailPet(pet);
+        });
+
+        holder.layoutPetItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                CharSequence options[] = new CharSequence[]
+                        {
+                                "Delete", "Cancel"
+                        };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Are you sure you want to delete?");
+                builder.setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        removeItem(position);
+                        Toast.makeText(context, "Deleted Successfully...", Toast.LENGTH_SHORT).show();
+                    } else if (which == 1) {
+                        //do nothing
+                    }
+                });
+
+                builder.show();
+                return false;
+            }
         });
     }
 
@@ -74,6 +101,15 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
             return petsList.size();
         } else
             return 0;
+    }
+    public void release(){
+        context = null;
+    }
+
+    public void removeItem(int index){
+        petsList.remove(index);
+        notifyItemRemoved(index);
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

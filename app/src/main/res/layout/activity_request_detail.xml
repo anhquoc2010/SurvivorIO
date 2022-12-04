@@ -27,7 +27,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.391"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/img_btn_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -106,6 +106,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <TextView
+                android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
@@ -134,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tv_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -165,7 +166,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -246,7 +247,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tv_price_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
@@ -334,8 +335,8 @@
         app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
-    <ImageView
-        android:id="@+id/imageView13"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgv_detail"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -354,7 +355,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/imgv_detail"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <ImageView
@@ -365,7 +366,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/outline_place_black_24dp"
         android:backgroundTint="#757373"
-        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/imgv_detail"
         app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
     <TextView
@@ -386,7 +387,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/bg_dish_detail"
-        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/imgv_detail"
         app:layout_constraintTop_toBottomOf="@+id/imageView14">
 
         <ImageView
@@ -424,7 +425,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/imgv_message"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="20dp"
@@ -435,7 +436,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/tv_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -444,7 +445,7 @@
         android:textStyle="bold"
         android:textColor="#336666"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintStart_toEndOf="@+id/imgv_message"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <ImageView
@@ -457,7 +458,7 @@
         android:backgroundTint="#336666"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvName_request_detail"
-        app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+        app:layout_constraintTop_toBottomOf="@+id/imgv_message" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -469,11 +470,12 @@
         android:layout_marginTop="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_message" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="2"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
@@ -481,6 +483,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView15">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancle"
             android:layout_width="131dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_height="wrap_content"
@@ -498,6 +501,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -511,7 +515,7 @@
             android:backgroundTint="#336666"
             android:textColor="@color/white"
             android:layout_weight="1"
-            android:text="Reschedule" />
+            android:text="Confirm" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

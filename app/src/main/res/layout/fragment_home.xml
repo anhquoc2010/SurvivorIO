@@ -101,6 +101,7 @@
                     app:cardElevation="0dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_card_Booking"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="20dp">
@@ -142,6 +143,7 @@
                     app:cardElevation="0dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_card_Request"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="20dp">

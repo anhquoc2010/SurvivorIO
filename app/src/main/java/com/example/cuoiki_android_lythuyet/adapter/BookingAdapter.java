@@ -41,6 +41,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         return  new BookingViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull BookingAdapter.BookingViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Booking booking = bookingList.get(position);
@@ -52,13 +53,20 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         holder.tvCalendarBooking.setText(booking.getCalendar()+"");
         holder.tvResponseBooking.setText(booking.getResponceBooking()+" responces");
         holder.imgvBooking.setImageResource(booking.getImgBooking());
+        holder.tvStatus.setText(booking.getStatus());
+        String status = booking.getStatus();
+        if (status.equals("Pending")){
+            holder.tvStatus.setHighlightColor(R.color.yellowsoft);
+        }else{
+            holder.tvStatus.setBackgroundResource(R.color.greensoft);
+        }
         holder.itemBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickGotoDeTail(booking);
             }
         });
-
+        
         holder.itemBooking.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -97,6 +105,11 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         intent.putExtras(bundle);
         mContext.startActivity(intent);
     }
+    public void removeItem(int index){
+        bookingList.remove(index);
+        notifyItemRemoved(index);
+        notifyDataSetChanged();
+    }
     public void release(){
         mContext = null;
     }
@@ -111,7 +124,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
     public class BookingViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvNameBooking, tvPriceBooking, tvResponseBooking, tvCalendarBooking;
+        TextView tvNameBooking, tvPriceBooking, tvResponseBooking, tvCalendarBooking, tvStatus;
         ImageView imgvBooking;
         RecyclerView rcvBooking;
         LinearLayout itemBooking;
@@ -124,6 +137,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             imgvBooking = itemView.findViewById(R.id.img_request_booking);
             rcvBooking = itemView.findViewById(R.id.rcvBooking);
             itemBooking = itemView.findViewById(R.id.item_request_booking);
+            tvStatus = itemView.findViewById(R.id.tv_status_item);
 //tvNameBooking     tvName
 //tvResponseBooking     tvResponse
 //tvPriceBooking            tvPrice

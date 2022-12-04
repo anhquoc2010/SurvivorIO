@@ -105,11 +105,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         intent.putExtras(bundle);
         mContext.startActivity(intent);
     }
-    public void removeItem(int index){
-        bookingList.remove(index);
-        notifyItemRemoved(index);
-        notifyDataSetChanged();
-    }
+
     public void release(){
         mContext = null;
     }

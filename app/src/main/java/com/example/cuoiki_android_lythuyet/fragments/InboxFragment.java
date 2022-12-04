@@ -44,7 +44,6 @@ public class InboxFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentInboxBinding.inflate(inflater, container, false);
 
-
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getCurrentUser().getUid();
         chatRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
@@ -73,7 +72,7 @@ public class InboxFragment extends Fragment {
                                 Log.d("hehehe", "onDataChange: " + dataSnapshot.hasChild("image"));
                                 if (dataSnapshot.hasChild("image")) {
                                     image[0] = dataSnapshot.child("image").getValue().toString();
-                                    Picasso.get().load(image[0]).placeholder(R.drawable.profile_circle_inactive).into(holder.profile_image);
+                                    Picasso.get().load(image[0]).placeholder(R.drawable.avt2).into(holder.profile_image);
                                 } else {
                                     holder.profile_image.setImageResource(R.drawable.pet2);
                                 }

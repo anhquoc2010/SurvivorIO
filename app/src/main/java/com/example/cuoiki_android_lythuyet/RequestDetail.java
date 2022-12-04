@@ -9,52 +9,48 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cuoiki_android_lythuyet.databinding.ActivityRequestDetailBinding;
 import com.example.cuoiki_android_lythuyet.fragments.InboxFragment;
 import com.example.cuoiki_android_lythuyet.models.Booking;
+import com.example.cuoiki_android_lythuyet.models.Bookings;
 import com.google.android.material.button.MaterialButton;
 import com.google.type.Color;
 import com.google.type.ColorOrBuilder;
+import com.squareup.picasso.Picasso;
 
 public class RequestDetail extends AppCompatActivity {
-    ImageView imgbtnBack;
-    MaterialButton btncancle, btnConfirm;
-    TextView tvName, tvPrice, tvStatus, tvMessage;
-    ImageView imgDetail, imgMessage;
+
+    ActivityRequestDetailBinding binding;
+
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_detail);
+        binding = ActivityRequestDetailBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        tvName = findViewById(R.id.tvName_request_detail);
-        tvPrice = findViewById(R.id.tv_price_detail);
-        tvStatus = findViewById(R.id.tv_status);
-        tvMessage = findViewById(R.id.tv_message);
-        imgDetail = findViewById(R.id.imgv_detail);
-        imgMessage = findViewById(R.id.imgv_message);
-        btncancle = findViewById(R.id.btn_cancle);
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("visit_user_name");
+        String image = intent.getStringExtra("visit_image");
+        Bookings bookings = (Bookings) intent.getSerializableExtra("bookings");
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle == null){
-            return;
-        }
-        Booking booking = (Booking) bundle.get("object_booking");
-
-        imgbtnBack = findViewById(R.id.img_btn_back);
-        imgbtnBack.setOnClickListener(view ->{
+        binding.imgBtnBack.setOnClickListener(view ->{
             onBackPressed();
         });
-        tvName.setText(booking.getName());
-        tvPrice.setText(booking.getPrice()+" $");
-        tvStatus.setText(booking.getStatus());
-        imgDetail.setImageResource(booking.getImgBooking());
-        String status = booking.getStatus();
+        binding.tvPriceDetail.setText(bookings.getPrice()+" $");
+        binding.textView7.setText(bookings.getName());
+        binding.textView10.setText(bookings.getPet());
+        Picasso.get().load(image).placeholder(R.drawable.avt3).into(binding.imgvDetail);
+        binding.tvNameRequestDetail.setText(name);
+        binding.tvStatus.setText(bookings.getStatus());
+        binding.tvCalendar.setText(bookings.getCalendar());
+        String status = bookings.getStatus();
         if (status.equals("Pending")){
-            tvStatus.setHighlightColor(R.color.yellowsoft);
+            binding.tvStatus.setHighlightColor(R.color.yellowsoft);
         }else{
-            tvStatus.setBackgroundResource(R.color.greensoft);
+            binding.tvStatus.setBackgroundResource(R.color.greensoft);
         }
-        btncancle.setOnClickListener(v -> {
+        binding.btnCancle.setOnClickListener(v -> {
             onBackPressed();
         });
     }

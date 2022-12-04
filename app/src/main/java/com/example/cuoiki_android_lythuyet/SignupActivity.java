@@ -71,6 +71,11 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Account created Successfully...", Toast.LENGTH_SHORT).show();
                                 });
                         RootRef.child("Users").child(currentUserID).child("name").setValue(username);
+                        RootRef.child("Keepers").child(currentUserID).child("name").setValue(username);
+                        RootRef.child("Keepers").child(currentUserID).child("distance").setValue(String.valueOf(Math.floor(Math.random() * 100) + 1) + " km away");
+                        RootRef.child("Keepers").child(currentUserID).child("star").setValue(String.valueOf(Math.floor(Math.random() * 5) + 1));
+                        RootRef.child("Keepers").child(currentUserID).child("price").setValue(String.valueOf(Math.floor(Math.random() * 100) + 1) + " $");
+                        RootRef.child("Keepers").child(currentUserID).child("review").setValue(String.valueOf(Math.floor(Math.random() * 100) + 1) + " reviews");
                         RootRef.child("Contacts").child(currentUserID).child("name").setValue(username);
                         RootRef.child("Contacts").child(currentUserID).child("status").setValue("");
                         RootRef.child("Contacts").child(currentUserID).child("image").setValue("");

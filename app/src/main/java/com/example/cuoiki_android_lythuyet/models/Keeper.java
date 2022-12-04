@@ -7,10 +7,11 @@ import java.io.Serializable;
 public class Keeper implements Serializable {
 
     private String name, distance, preview;
-    private int imageKeeper, star;
+    private double star;
+    private int imageKeeper;
     private double price;
 
-    public Keeper(int imageKeeper, String name, String distance, int star, String preview, double price){
+    public Keeper(int imageKeeper, String name, String distance, double star, String preview, double price){
         this.imageKeeper = imageKeeper;
         this.name = name;
         this.distance = distance;
@@ -52,11 +53,11 @@ public class Keeper implements Serializable {
         this.imageKeeper = imageKeeper;
     }
 
-    public int getStar() {
+    public double getStar() {
         return star;
     }
 
-    public void setStar(int star) {
+    public void setStar(double star) {
         this.star = star;
     }
 

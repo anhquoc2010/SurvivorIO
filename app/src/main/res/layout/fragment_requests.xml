@@ -20,6 +20,7 @@
             android:id="@+id/rcvOwnerRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/owner_request_row_item" />
 
     </LinearLayout>

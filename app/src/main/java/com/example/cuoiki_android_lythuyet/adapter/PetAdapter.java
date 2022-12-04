@@ -22,6 +22,9 @@ import com.example.cuoiki_android_lythuyet.PetDetailActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.models.Pet;
 import com.example.cuoiki_android_lythuyet.tag.Tag;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -139,8 +142,14 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
 
         ImageView ivMark;
 
+        FirebaseAuth mAuth;
+        DatabaseReference mDatabase;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            mAuth = FirebaseAuth.getInstance();
+            mDatabase = FirebaseDatabase.getInstance().getReference();
             // Ánh xạ view
             tvName = itemView.findViewById(R.id.tv_name);
             tvSpecies = itemView.findViewById(R.id.tv_species);

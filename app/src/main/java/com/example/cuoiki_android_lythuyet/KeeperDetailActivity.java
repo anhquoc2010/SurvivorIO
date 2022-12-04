@@ -1,35 +1,92 @@
 package com.example.cuoiki_android_lythuyet;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.cuoiki_android_lythuyet.databinding.ActivityKeeperDetailBinding;
 import com.example.cuoiki_android_lythuyet.fragments.HomeFragment;
 import com.example.cuoiki_android_lythuyet.models.Booking;
+import com.example.cuoiki_android_lythuyet.models.Bookings;
+import com.example.cuoiki_android_lythuyet.models.Keepers;
+import com.example.cuoiki_android_lythuyet.models.Pet;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.type.DateTime;
+import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class KeeperDetailActivity extends AppCompatActivity {
-    Button btn_book;
+
+    ActivityKeeperDetailBinding binding;
+    private FirebaseAuth mauth;
+    private DatabaseReference RootRef;
+    private String currentUserID, keeperID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_keeper_detail);
+        binding = ActivityKeeperDetailBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        btn_book = (Button) findViewById(R.id.btn_book);
+        mauth = FirebaseAuth.getInstance();
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        currentUserID = mauth.getCurrentUser().getUid();
 
-        btn_book.setOnClickListener(new View.OnClickListener() {
+        keeperID = getIntent().getExtras().get("visit_user_id").toString();
+        Pet pet = (Pet) getIntent().getSerializableExtra("petsaved");
+        Keepers keeper = (Keepers) getIntent().getSerializableExtra("keepersaved");
+
+        RootRef.child("Users").child(keeperID).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(KeeperDetailActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild("image")) {
+                    String receiverprofileimage = dataSnapshot.child("image").getValue().toString();
+                    Picasso.get().load(receiverprofileimage).placeholder(R.drawable.profile_circle_inactive).into(binding.ivAvatarProfile);
+                } else {
+                    binding.ivAvatarProfile.setImageResource(R.drawable.pet2);
+                }
+                binding.tvNameProfile.setText(dataSnapshot.child("name").getValue().toString());
+                binding.tvPetsCount.setText(String.valueOf(Math.floor(Math.random() * 10) + 1));
+                binding.tvFriendsCount.setText(String.valueOf(Math.floor(Math.random() * 10) + 1));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
+        binding.btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = binding.tvNameProfile.getText().toString();
 
+                //get now time
 
+                Calendar calendar = Calendar.getInstance();
+
+                SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy - hh:mm a");
+                String saveCurrentDatetime = currentDate.format(calendar.getTime());
+                String status = "Pending";
+                Bookings bookings = new Bookings(name, status, saveCurrentDatetime, pet.getName(), keeper.getPrice(), currentUserID, keeperID);
+                Log.d("hehehehe", "onClick: " + bookings.toString());
+                RootRef.child("Bookings").push().setValue(bookings);
+                Intent intent = new Intent(KeeperDetailActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

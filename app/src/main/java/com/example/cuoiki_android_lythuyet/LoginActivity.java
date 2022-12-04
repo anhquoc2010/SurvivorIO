@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .addOnCompleteListener(task1 -> {
                                     if (task1.isSuccessful()) {
                                         sendUserToMainActivity();
+                                        userRef.child(currentUserId).child("email").setValue(email);
                                         Toast.makeText(LoginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
                                     }
                                 });

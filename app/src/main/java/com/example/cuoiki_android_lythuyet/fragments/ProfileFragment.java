@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.cuoiki_android_lythuyet.EditProfile;
@@ -20,8 +21,10 @@ import com.example.cuoiki_android_lythuyet.models.Pet;
 import com.example.cuoiki_android_lythuyet.models.SinhVien;
 import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ public class ProfileFragment extends Fragment {
     ArrayList<Integer> images;
     GalleryAdapter galleryAdapter;
 
-    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private String currentUserId;
 
@@ -77,12 +80,30 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
 
-        SinhVien sinhVien = (SinhVien) getActivity().getIntent().getSerializableExtra("sinhVienNe");
+        databaseReference.child("Users").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot snapshot) {
+                if (snapshot.exists() && snapshot.hasChild("name") && snapshot.hasChild("email") && snapshot.hasChild("image")) {
+                    Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.ivAvatarProfile);
+                    binding.tvNameProfile.setText(snapshot.child("name").getValue().toString());
+                    binding.tvMailProfile.setText(snapshot.child("email").getValue().toString());
+                } else if (snapshot.exists() && snapshot.hasChild("name") && snapshot.hasChild("email")) {
+                    binding.tvNameProfile.setText(snapshot.child("name").getValue().toString());
+                    binding.tvMailProfile.setText(snapshot.child("email").getValue().toString());
+                } else if (snapshot.exists() && snapshot.hasChild("name")) {
+                    binding.tvNameProfile.setText(snapshot.child("name").getValue().toString());
+                    binding.tvMailProfile.setText(firebaseAuth.getCurrentUser().getEmail());
+                } else {
+                    Toast.makeText(getActivity(), "Please update your profile information...", Toast.LENGTH_SHORT).show();
+                }
+            }
 
-        if (sinhVien != null) {
-            binding.tvNameProfile.setText(sinhVien.getHoTen().toString());
-            binding.tvMailProfile.setText(sinhVien.getEmail().toString());
-        }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         addPets();
         addGallery();
 

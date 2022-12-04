@@ -1,5 +1,7 @@
 package com.example.cuoiki_android_lythuyet.adapter;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +21,7 @@ import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.RequestDetail;
 import com.example.cuoiki_android_lythuyet.models.Booking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingViewHolder> {
@@ -26,23 +30,19 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     private Context mContext;
     private List<Booking> bookingList;
 
-    public BookingAdapter(Context mContext) {
+    public BookingAdapter(Context mContext, List<Booking> bookingList) {
         this.mContext = mContext;
-    }
-
-    public void setData(List<Booking> list){
-        this.bookingList = list;
-        notifyDataSetChanged();
+        this.bookingList = bookingList;
     }
     @NonNull
     @Override
     public BookingAdapter.BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.owner_request_row_item,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.owner_request_row_item,parent,false);
         return  new BookingViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookingAdapter.BookingViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BookingAdapter.BookingViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Booking booking = bookingList.get(position);
         if(booking == null){
             return;
@@ -58,7 +58,38 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                 onClickGotoDeTail(booking);
             }
         });
+
+        holder.itemBooking.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                CharSequence options[] = new CharSequence[]
+                        {
+                                "Delete", "Cancel"
+                        };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                builder.setTitle("Are you sure you want to delete?");
+                builder.setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        removeItem(position);
+                        Toast.makeText(mContext, "Deleted Successfully...", Toast.LENGTH_SHORT).show();
+                    } else if (which == 1) {
+                        //do nothing
+                    }
+                });
+
+                builder.show();
+                return false;
+            }
+        });
     }
+
+    public void removeItem(int index){
+        bookingList.remove(index);
+        notifyItemRemoved(index);
+        notifyDataSetChanged();
+    }
+
     private void onClickGotoDeTail(Booking booking){
         Intent intent = new Intent(mContext, RequestDetail.class);
         Bundle bundle = new Bundle();

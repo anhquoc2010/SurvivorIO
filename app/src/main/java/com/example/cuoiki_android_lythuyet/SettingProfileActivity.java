@@ -7,17 +7,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cuoiki_android_lythuyet.databinding.ActivitySettingProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class SettingProfileActivity extends AppCompatActivity {
 
     ActivitySettingProfileBinding binding;
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySettingProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         binding.btnLogout.setOnClickListener(v -> {
             firebaseAuth.signOut();

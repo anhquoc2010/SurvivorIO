@@ -3,8 +3,6 @@ u
 Eapp/src/main/java/com/example/cuoiki_android_lythuyet/models/Pet.java,9\d\9dee165d08318af8182b7af439294d58fe015fac
 Å
 Qapp/src/main/java/com/example/cuoiki_android_lythuyet/adapter/GalleryAdapter.java,6\6\66de20d7a27bde901a393c3aced7e82ca2eb95c1
-Å
-Qapp/src/main/java/com/example/cuoiki_android_lythuyet/adapter/MiniPetAdapter.java,e\c\ec668a190f9e558eb7ac5e87829d8d42906229f8
 z
 Japp/src/main/java/com/example/cuoiki_android_lythuyet/models/Messages.java,1\f\1f9cb2a13cdc9e6bf582599b175c31675038e3aa
 A
@@ -23,8 +21,6 @@ v
 Fapp/src/main/java/com/example/cuoiki_android_lythuyet/EditProfile.java,d\f\df00a2678c6c6c4ccf95c1d13cc087b1b907dd89
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 Å
 Qapp/src/main/java/com/example/cuoiki_android_lythuyet/adapter/MessageAdapter.java,4\a\4aa1f6a98a6885723612057780057a7c171bb767
 |

@@ -26,12 +26,10 @@ public class BookingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bookings, container, false);
 
         rcvBooking = view.findViewById(R.id.rcvBooking);
-        bookingAdapter = new BookingAdapter(getActivity());
+        bookingAdapter = new BookingAdapter(getActivity(), getListBooking());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         rcvBooking.setLayoutManager(linearLayoutManager);
-
-        bookingAdapter.setData(getListBooking());
         rcvBooking.setAdapter(bookingAdapter);
 
         // Inflate the layout for this fragment

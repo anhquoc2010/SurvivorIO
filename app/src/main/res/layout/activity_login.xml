@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Enter Passwork"
+            android:hint="Enter Password"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
             app:endIconMode="password_toggle"

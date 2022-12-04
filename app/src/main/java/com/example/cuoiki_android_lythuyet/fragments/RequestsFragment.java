@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.adapter.BookingAdapter;
@@ -20,18 +21,19 @@ import java.util.List;
 public class RequestsFragment extends Fragment {
     private RecyclerView rcvBooking;
     private BookingAdapter bookingAdapter;
+    LinearLayout itemRequest;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_requests, container, false);
         rcvBooking = view.findViewById(R.id.rcvOwnerRequest);
-        bookingAdapter = new BookingAdapter(getActivity());
+
+        bookingAdapter = new BookingAdapter(getContext(), getListBooking());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         rcvBooking.setLayoutManager(linearLayoutManager);
-
-        bookingAdapter.setData(getListBooking());
         rcvBooking.setAdapter(bookingAdapter);
+
         // Inflate the layout for this fragment
         return view;
     }

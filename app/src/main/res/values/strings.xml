@@ -8,15 +8,15 @@
     <string name="my_profile">My profile</string>
     <string name="text_screen">Create an account and access thousand\nof cool stuffs</string>
 
-    <string name="heading_one">Quick &amp; Easy Payments</string>
-    <string name="heading_two">Instant Notifications</string>
-    <string name="heading_three">Cashless Payment</string>
-    <string name="heading_fourth">Pay Anywhere</string>
+    <string name="heading_one">Welcome To Pet Booking</string>
+    <string name="heading_two">Increase Sales</string>
+    <string name="heading_three">Save Time And Money</string>
+    <string name="heading_fourth">Booking Anywhere</string>
 
-    <string name="desc_one">Grow your Business By Accepting Card Payments with The New Card Reader</string>
-    <string name="desc_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
-    <string name="desc_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
-    <string name="desc_fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="desc_one">Application for pets. The most appropriate choice for pets in the house.</string>
+    <string name="desc_two">At the same time, the customers in the pet service business also have a chance to boost revenue and increase the number of customers when becoming a partner with Pet Booking.</string>
+    <string name="desc_three">With Pet Booking, pet owners can save time and money on clinic/spa/hotel booking and pet transporting.</string>
+    <string name="desc_fourth">With the advance of technology, pet care should be combined with modern techniques to come up with the best service experience to everyone.</string>
 
     <string name="forget_password_detail">Provide your account`s email for which you want\nto reset your password! </string>
     <string name="login">Login</string>

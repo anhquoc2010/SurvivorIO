@@ -21,6 +21,7 @@ import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.RequestDetail;
 import com.example.cuoiki_android_lythuyet.models.Booking;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingViewHolder> {
@@ -29,18 +30,14 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     private Context mContext;
     private List<Booking> bookingList;
 
-    public BookingAdapter(Context mContext) {
+    public BookingAdapter(Context mContext, List<Booking> bookingList) {
         this.mContext = mContext;
-    }
-
-    public void setData(List<Booking> list){
-        this.bookingList = list;
-        notifyDataSetChanged();
+        this.bookingList = bookingList;
     }
     @NonNull
     @Override
     public BookingAdapter.BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.owner_request_row_item,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.owner_request_row_item,parent,false);
         return  new BookingViewHolder(view);
     }
 
@@ -69,6 +66,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                 onClickGotoDeTail(booking);
             }
         });
+        
         holder.itemBooking.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -93,6 +91,13 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             }
         });
     }
+
+    public void removeItem(int index){
+        bookingList.remove(index);
+        notifyItemRemoved(index);
+        notifyDataSetChanged();
+    }
+
     private void onClickGotoDeTail(Booking booking){
         Intent intent = new Intent(mContext, RequestDetail.class);
         Bundle bundle = new Bundle();

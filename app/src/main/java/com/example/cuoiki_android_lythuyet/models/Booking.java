@@ -11,13 +11,22 @@ public class Booking implements Serializable {
     Double price;
     int responceBooking;
     String calendar;
-
-    public Booking(String name, int imgBooking, Double price, int responceBooking, String calendar) {
+    String status;
+    public Booking(String name, int imgBooking, Double price, int responceBooking, String calendar, String status) {
         this.name = name;
         this.imgBooking = imgBooking;
         this.price = price;
         this.responceBooking = responceBooking;
         this.calendar = calendar;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getName() {

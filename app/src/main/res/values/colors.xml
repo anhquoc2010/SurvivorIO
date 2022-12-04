@@ -10,4 +10,7 @@
     <color name="inactive">#C4C4C4</color>
     <color name="background">#F0F4F3</color>
     <color name="gray_dark">#EDEDED</color>
+    <color name="yellowsoft">#F1E99F</color>
+    <color name="greensoft">#B3EEB5</color>
+
 </resources>

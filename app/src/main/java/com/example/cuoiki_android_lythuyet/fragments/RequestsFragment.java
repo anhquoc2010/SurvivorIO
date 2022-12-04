@@ -39,11 +39,11 @@ public class RequestsFragment extends Fragment {
     }
     private List<Booking> getListBooking(){
         List<Booking> listBookings = new ArrayList<>();
-        listBookings.add(new Booking("Phuc", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00"));
-        listBookings.add(new Booking("Luc", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00"));
-        listBookings.add(new Booking("Quoc", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00"));
-        listBookings.add(new Booking("Ngan", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00"));
-        listBookings.add(new Booking("Manh", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00"));
+        listBookings.add(new Booking("Ho Quang Phuc", R.drawable.avt4, 120.0, 8,"8/10/2022 - 10.00"));
+        listBookings.add(new Booking("Huynh Tan Luc", R.drawable.avt2, 100.0, 8,"16/10/2022 - 8.00"));
+        listBookings.add(new Booking("Le Anh Quoc", R.drawable.avt3, 110.0, 8,"6/11/2022 - 10.00"));
+        listBookings.add(new Booking("Tran Thi Kim Ngan", R.drawable.avt1, 90.0, 8,"21/11/2022 - 9.00"));
+        listBookings.add(new Booking("Tran Duc Manh", R.drawable.avt5, 90.0, 8,"19/12/2022 - 8.00"));
 
         return listBookings;
     }

@@ -34,31 +34,34 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         this.mContext = mContext;
         this.bookingList = bookingList;
     }
+
     @NonNull
     @Override
     public BookingAdapter.BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.owner_request_row_item,parent,false);
-        return  new BookingViewHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.owner_request_row_item, parent, false);
+        return new BookingViewHolder(view);
     }
 
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull BookingAdapter.BookingViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Booking booking = bookingList.get(position);
-        if(booking == null){
+        if (booking == null) {
             return;
         }
         holder.tvNameBooking.setText(booking.getName());
-        holder.tvPriceBooking.setText(booking.getPrice()+ " $");
-        holder.tvCalendarBooking.setText(booking.getCalendar()+"");
-        holder.tvResponseBooking.setText(booking.getResponceBooking()+" responces");
+        holder.tvPriceBooking.setText(booking.getPrice() + " $");
+        holder.tvCalendarBooking.setText(booking.getCalendar() + "");
+        holder.tvResponseBooking.setText(booking.getResponceBooking() + " responses");
         holder.imgvBooking.setImageResource(booking.getImgBooking());
         holder.tvStatus.setText(booking.getStatus());
         String status = booking.getStatus();
-        if (status.equals("Pending")){
-            holder.tvStatus.setHighlightColor(R.color.yellowsoft);
-        }else{
+        if (status.equals("Pending")) {
+            holder.tvStatus.setBackgroundResource(R.color.yellowsoft);
+            holder.tvStatus.setTextColor(mContext.getResources().getColor(R.color.yellowheavy));
+        } else {
             holder.tvStatus.setBackgroundResource(R.color.greensoft);
+            holder.tvStatus.setTextColor(mContext.getResources().getColor(R.color.greenheavy));
         }
         holder.itemBooking.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +69,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                 onClickGotoDeTail(booking);
             }
         });
-        
+
         holder.itemBooking.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -92,42 +95,39 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         });
     }
 
-    public void removeItem(int index){
+    public void removeItem(int index) {
         bookingList.remove(index);
         notifyItemRemoved(index);
         notifyDataSetChanged();
     }
 
-    private void onClickGotoDeTail(Booking booking){
+    private void onClickGotoDeTail(Booking booking) {
         Intent intent = new Intent(mContext, RequestDetail.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_booking", booking);
         intent.putExtras(bundle);
         mContext.startActivity(intent);
     }
-    public void removeItem(int index){
-        bookingList.remove(index);
-        notifyItemRemoved(index);
-        notifyDataSetChanged();
-    }
-    public void release(){
+
+    public void release() {
         mContext = null;
     }
 
     @Override
     public int getItemCount() {
-        if (bookingList != null){
+        if (bookingList != null) {
             return bookingList.size();
         }
         return 0;
     }
 
-    public class BookingViewHolder extends RecyclerView.ViewHolder{
+    public class BookingViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvNameBooking, tvPriceBooking, tvResponseBooking, tvCalendarBooking, tvStatus;
         ImageView imgvBooking;
         RecyclerView rcvBooking;
         LinearLayout itemBooking;
+
         public BookingViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNameBooking = itemView.findViewById(R.id.tvName);

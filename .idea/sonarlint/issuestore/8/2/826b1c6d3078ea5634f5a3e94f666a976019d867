@@ -1,0 +1,20 @@
+
+k
+java:S1192J"IDefine a constant instead of duplicating this literal "Contacts" 3 times.(šÏêøúÿÿÿÿ8Ü¾®ÊÍ0
+c
+java:S1192C"FDefine a constant instead of duplicating this literal "Users" 3 times.(ŒË»½8Ü¾®ÊÍ0
+g	java:S116"RRename this field "RootRef" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æø¯Ç
+l
+java:S1450"VRemove the "RootRef" field and declare it as a local variable in the relevant methods.(æø¯Ç
+q
+java:S1450"[Remove the "firebaseAuth" field and declare it as a local variable in the relevant methods.(“ø
+X
+java:S1874"=Remove this use of "setSystemUiVisibility"; it is deprecated.(ÿÉˆÉùÿÿÿÿ
+_
+java:S1874"DRemove this use of "SYSTEM_UI_FLAG_LAYOUT_STABLE"; it is deprecated.(ÿÉˆÉùÿÿÿÿ
+c
+java:S1874"HRemove this use of "SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN"; it is deprecated.(ÿÉˆÉùÿÿÿÿ
+b
+java:S1874"GRemove this use of "SYSTEM_UI_FLAG_LIGHT_STATUS_BAR"; it is deprecated.(ÿÉˆÉùÿÿÿÿ
+j	java:S100Y"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅµÎ8ù¾®ÊÍ0
+o	java:S100`"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À¥°üÿÿÿÿ8ı¾®ÊÍ0

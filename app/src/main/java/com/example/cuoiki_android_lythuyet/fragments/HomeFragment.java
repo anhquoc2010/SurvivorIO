@@ -13,6 +13,7 @@ import com.example.cuoiki_android_lythuyet.CreatePetActivity;
 import com.example.cuoiki_android_lythuyet.PetListActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.databinding.FragmentHomeBinding;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 
 public class HomeFragment extends Fragment {
 
@@ -31,5 +32,11 @@ public class HomeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return binding.getRoot();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Tag.setTag("info");
     }
 }

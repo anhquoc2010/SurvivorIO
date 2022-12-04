@@ -53,11 +53,11 @@ public class RequestsFragment extends Fragment {
     }
     private List<Booking> getListBooking(){
         List<Booking> listBookings = new ArrayList<>();
-        listBookings.add(new Booking("Phuc", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00", "Pending"));
-        listBookings.add(new Booking("Luc", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00", "Confirmed"));
-        listBookings.add(new Booking("Quoc", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00", "Confirmed"));
-        listBookings.add(new Booking("Ngan", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00", "Pending"));
-        listBookings.add(new Booking("Manh", R.drawable.ahinhanhdemo, 70.0, 8,"10/12/2022 - 10.00", "Pending"));
+        listBookings.add(new Booking("Phuc", R.drawable.avt1, 70.0, 8,"10/12/2022 - 10.00", "Pending"));
+        listBookings.add(new Booking("Luc", R.drawable.avt2, 70.0, 8,"10/12/2022 - 10.00", "Confirmed"));
+        listBookings.add(new Booking("Quoc", R.drawable.avt3, 70.0, 8,"10/12/2022 - 10.00", "Confirmed"));
+        listBookings.add(new Booking("Ngan", R.drawable.avt4, 70.0, 8,"10/12/2022 - 10.00", "Pending"));
+        listBookings.add(new Booking("Manh", R.drawable.avt5, 70.0, 8,"10/12/2022 - 10.00", "Pending"));
 
         return listBookings;
     }

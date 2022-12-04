@@ -17,9 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cuoiki_android_lythuyet.ListKeeperSaved;
 import com.example.cuoiki_android_lythuyet.PetDetailActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.models.Pet;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 
 import java.util.ArrayList;
 
@@ -58,7 +60,12 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         holder.ivAvatar.setImageResource(pet.getImageResourceID());
 
         holder.layoutPetItem.setOnClickListener(v -> {
-            onClickDetailPet(pet);
+            if (Tag.getTag().equals("info")) {
+                onClickDetailPet(pet);
+            } else if (Tag.getTag().equals("request")) {
+                onClickRequest(pet);
+            }
+
         });
 
         holder.layoutPetItem.setOnLongClickListener(new View.OnLongClickListener() {
@@ -84,6 +91,15 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
                 return false;
             }
         });
+    }
+
+    private void onClickRequest(Pet pet) {
+        Intent intent = new Intent(context, ListKeeperSaved.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("petsaved", pet);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+        ((Activity) context).overridePendingTransition(R.anim.slide_in, R.anim.fade_out);
     }
 
     private void onClickDetailPet(Pet pet) {

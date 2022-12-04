@@ -1,0 +1,13 @@
+
+s
+java:S1450!"VRemove the "binding" field and declare it as a local variable in the relevant methods.(ö‘àŠ8¥†ãÔÍ0
+~
+java:S1450)"\Remove the "currentUserId" field and declare it as a local variable in the relevant methods.(õÉĞ²ıÿÿÿÿ8­†ãÔÍ0
+{
+java:S1450#"YRemove the "petAdapter" field and declare it as a local variable in the relevant methods.(ç’¶Éùÿÿÿÿ8­†ãÔÍ0
+G
+java:S11976"*Move the array designators [] to the type.(õ›¾³8­†ãÔÍ0
+Y
+java:S1874P"<Remove this use of "getSerializableExtra"; it is deprecated.(¿°×Ú8·†ãÔÍ0
+I
+java:S1659‹"-Declare "saveCurrentDate" on a separate line.(¬µ»Ìüÿÿÿÿ

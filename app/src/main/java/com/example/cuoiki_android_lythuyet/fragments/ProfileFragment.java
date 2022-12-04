@@ -19,6 +19,7 @@ import com.example.cuoiki_android_lythuyet.adapter.MiniPetAdapter;
 import com.example.cuoiki_android_lythuyet.databinding.FragmentProfileBinding;
 import com.example.cuoiki_android_lythuyet.models.Pet;
 import com.example.cuoiki_android_lythuyet.models.SinhVien;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -118,6 +119,12 @@ public class ProfileFragment extends Fragment {
         binding.rvGalleryProfile.setHasFixedSize(true);
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Tag.setTag("info");
     }
 
     private void addPets() {

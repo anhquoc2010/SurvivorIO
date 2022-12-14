@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="quotes">
+        <item>“The way to get started is to quit talking and begin doing.” – Walt Disney</item>
+        <item>“The pessimist sees difficulty in every opportunity. The optimist sees the opportunity in every difficulty.” – Winston Churchill</item>
+        <item>“Don’t let yesterday take up too much of today.” – Will Rogers</item>
+        <item>“You learn more from failure than from success. Don’t let it stop you. Failure builds character.” – Unknown</item>
+        <item>“It’s not whether you get knocked down, it’s whether you get up.” – Vince Lombardi</item>
+        <item>“If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.” – Steve Jobs</item>
+        <item>“People who are crazy enough to think they can change the world, are the ones who do.” – Rob Siltanen</item>
+        <item>“Failure will never overtake me if my determination to succeed is strong enough.” – Og Mandino</item>
+        <item>“Entrepreneurs are great at dealing with uncertainty and also very good at minimizing risk. That’s the classic entrepreneur.” – Mohnish Pabrai</item>
+        <item>“We may encounter many defeats but we must not be defeated.” – Maya Angelou</item>
+        <item>“Knowing is not enough; we must apply. Wishing is not enough; we must do.” – Johann Wolfgang von Goethe</item>
+        <item>“Imagine your life is perfect in every respect; what would it look like?” – Brian Tracy</item>
+        <item>“We generate fears while we sit. We overcome them by action.” – Dr. Henry Link</item>
+        <item>“Whether you think you can or you think you can’t, you’re right.” – Henry Ford</item>
+    </string-array>
+</resources>

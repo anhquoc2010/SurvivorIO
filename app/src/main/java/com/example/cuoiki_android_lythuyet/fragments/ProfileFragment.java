@@ -18,7 +18,6 @@ import com.example.cuoiki_android_lythuyet.adapter.GalleryAdapter;
 import com.example.cuoiki_android_lythuyet.adapter.MiniPetAdapter;
 import com.example.cuoiki_android_lythuyet.databinding.FragmentProfileBinding;
 import com.example.cuoiki_android_lythuyet.models.Pet;
-import com.example.cuoiki_android_lythuyet.models.SinhVien;
 import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,10 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.cuoiki_android_lythuyet.adapter.KeeperAdapter;
 import com.example.cuoiki_android_lythuyet.databinding.ActivityListKeeperSavedBinding;
 import com.example.cuoiki_android_lythuyet.models.Keepers;
-import com.example.cuoiki_android_lythuyet.models.Keeper;
 import com.example.cuoiki_android_lythuyet.models.Pet;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -27,15 +26,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ListKeeperSaved extends AppCompatActivity {
 
     private ActivityListKeeperSavedBinding binding;
-    private ArrayList<Keeper> keepers;
-    private KeeperAdapter keeperAdapter;
 
     private DatabaseReference keeperRef, userRef;
     private FirebaseAuth mAuth;
@@ -43,6 +38,9 @@ public class ListKeeperSaved extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         super.onCreate(savedInstanceState);
         binding = ActivityListKeeperSavedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -52,10 +50,6 @@ public class ListKeeperSaved extends AppCompatActivity {
         keeperRef = FirebaseDatabase.getInstance().getReference().child("Keepers");
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
-//        addKeepers();
-//        keeperAdapter = new KeeperAdapter(this, keepers);
-//        binding.lvKeeperSaved.setAdapter(keeperAdapter);
-//        binding.lvKeeperSaved.setHasFixedSize(true);
     }
 
     @Override
@@ -65,6 +59,8 @@ public class ListKeeperSaved extends AppCompatActivity {
         //get intent
         Intent intent = getIntent();
         Pet pet = (Pet) intent.getSerializableExtra("petsaved");
+
+        binding.imageView5.setOnClickListener(v -> onBackPressed());
 
         FirebaseRecyclerOptions<Keepers> options = new FirebaseRecyclerOptions.Builder<Keepers>()
                 .setQuery(keeperRef, Keepers.class).build();
@@ -82,8 +78,9 @@ public class ListKeeperSaved extends AppCompatActivity {
                                 Log.d("hehehe", "onDataChange: " + dataSnapshot.hasChild("image"));
                                 if (dataSnapshot.hasChild("image")) {
                                     image[0] = dataSnapshot.child("image").getValue().toString();
-                                    Picasso.get().load(image[0]).placeholder(R.drawable.profile_circle_inactive).into(holder.profile_image);
+                                    Picasso.get().load(image[0]).placeholder(R.drawable.pet2).into(holder.profile_image);
                                 } else {
+                                    holder.profile_image.setImageResource(R.drawable.pet2);
                                 }
                                 final String name = dataSnapshot.child("name").getValue().toString();
 
@@ -141,13 +138,4 @@ public class ListKeeperSaved extends AppCompatActivity {
             price = itemView.findViewById(R.id.tv_price_booking);
         }
     }
-
-//    private void addKeepers() {
-//        keepers = new ArrayList<>();
-//        keepers.add(new Keeper(R.drawable.pet1,"Lực", "10km away", 5.0, "6 preview", 45));
-//        keepers.add(new Keeper(R.drawable.pet2,"Ngân", "10km away", 5.0, "5 preview", 35));
-//        keepers.add(new Keeper(R.drawable.pet3,"Mạnh", "10km away", 5.0, "1 preview", 15));
-//        keepers.add(new Keeper(R.drawable.pet4,"Quốc", "10km away", 5.0, "8 preview", 65));
-//        keepers.add(new Keeper(R.drawable.pet5,"Phúc", "10km away", 5.0, "1 preview", 35));
-//    }
 }

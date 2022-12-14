@@ -62,40 +62,12 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".CreatePetActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".SettingProfileActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".KeeperDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".SuccessMessage"
-            android:exported="false" />
-        <activity
-            android:name=".SetNewPassword"
-            android:exported="false" />
-        <activity
-            android:name=".MakeSelection"
-            android:exported="false" />
-        <activity
-            android:name=".ForgetPasswork"
-            android:exported="false" />
         <activity
             android:name=".ScreenActivity2"
             android:exported="false" />
@@ -118,13 +90,6 @@
             android:name=".LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".CreateBehaviorPetActivity"
-            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

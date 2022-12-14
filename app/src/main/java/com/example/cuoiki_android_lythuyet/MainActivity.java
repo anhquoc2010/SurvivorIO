@@ -1,12 +1,11 @@
 package com.example.cuoiki_android_lythuyet;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cuoiki_android_lythuyet.databinding.ActivityMainBinding;
 import com.example.cuoiki_android_lythuyet.fragments.BookingFragment;
@@ -41,15 +40,22 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                        R.anim.slide_in,  // enter
-                        R.anim.fade_out,  // exit
-                        R.anim.fade_in,   // popEnter
-                        R.anim.slide_out  // popExit
-                )
-                .replace(R.id.fragment_container, new HomeFragment())
-                .addToBackStack(null)
-                .commit();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser == null) {
+            sendUserToStartActivity();
+        } else {
+            updateUserStatus("online");
+
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(
+                            R.anim.slide_in,  // enter
+                            R.anim.fade_out,  // exit
+                            R.anim.fade_in,   // popEnter
+                            R.anim.slide_out  // popExit
+                    )
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

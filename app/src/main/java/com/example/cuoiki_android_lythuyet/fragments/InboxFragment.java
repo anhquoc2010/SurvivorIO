@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuoiki_android_lythuyet.InboxActivity;
 import com.example.cuoiki_android_lythuyet.R;
-import com.example.cuoiki_android_lythuyet.SettingProfileActivity;
 import com.example.cuoiki_android_lythuyet.databinding.FragmentInboxBinding;
 import com.example.cuoiki_android_lythuyet.models.Contacts;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -72,7 +71,7 @@ public class InboxFragment extends Fragment {
                                 Log.d("hehehe", "onDataChange: " + dataSnapshot.hasChild("image"));
                                 if (dataSnapshot.hasChild("image")) {
                                     image[0] = dataSnapshot.child("image").getValue().toString();
-                                    Picasso.get().load(image[0]).placeholder(R.drawable.avt2).into(holder.profile_image);
+                                    Picasso.get().load(image[0]).placeholder(R.drawable.pet2).into(holder.profile_image);
                                 } else {
                                     holder.profile_image.setImageResource(R.drawable.pet2);
                                 }

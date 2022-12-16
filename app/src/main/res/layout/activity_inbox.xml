@@ -50,7 +50,6 @@
                 android:textAlignment="center"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/name"
-                app:layout_constraintEnd_toStartOf="@id/date_time"
                 app:layout_constraintStart_toEndOf="@id/name"
                 app:layout_constraintTop_toTopOf="@id/name" />
 
@@ -61,7 +60,10 @@
                 android:layout_marginHorizontal="8dp"
                 android:text="@string/about_me"
                 android:textSize="16sp"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="@id/name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/dot"
                 app:layout_constraintTop_toTopOf="@id/name" />
         </androidx.constraintlayout.widget.ConstraintLayout>

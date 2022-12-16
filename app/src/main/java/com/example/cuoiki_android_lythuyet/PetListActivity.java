@@ -1,14 +1,15 @@
 package com.example.cuoiki_android_lythuyet;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cuoiki_android_lythuyet.adapter.PetAdapter;
 import com.example.cuoiki_android_lythuyet.databinding.ActivityPetListBinding;
 import com.example.cuoiki_android_lythuyet.models.Pet;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 
 import java.util.ArrayList;
 
@@ -52,5 +53,18 @@ public class PetListActivity extends AppCompatActivity {
         super.onDestroy();
         if (petAdapter != null)
             petAdapter.release();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Tag.setTagOnline("online");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

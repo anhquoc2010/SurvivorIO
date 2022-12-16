@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser != null) {
+        if (currentUser != null && Tag.getTagOnline().equals("")) {
             updateUserStatus("offline");
         }
     }
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser != null) {
+        if (currentUser != null && Tag.getTagOnline().equals("")) {
             updateUserStatus("offline");
         }
     }

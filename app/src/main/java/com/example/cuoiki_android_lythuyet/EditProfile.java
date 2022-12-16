@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cuoiki_android_lythuyet.databinding.ActivityEditProfileBinding;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +46,7 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Tag.setTagOnline("online");
 
         binding.progressBar.setVisibility(View.VISIBLE);
 
@@ -163,5 +165,11 @@ public class EditProfile extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         RetrieveUserInfo();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

@@ -56,7 +56,7 @@ public class InboxFragment extends Fragment {
     public void onStart() {
         super.onStart();
         FirebaseRecyclerOptions<Contacts> options = new FirebaseRecyclerOptions.Builder<Contacts>()
-                .setQuery(chatRef, Contacts.class).build();
+                .setQuery(chatRef.orderByChild("name"), Contacts.class).build();
 
         FirebaseRecyclerAdapter<Contacts, ChatViewHolder> adapter = new FirebaseRecyclerAdapter<Contacts, ChatViewHolder>(options) {
             @Override

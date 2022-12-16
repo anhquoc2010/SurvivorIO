@@ -137,7 +137,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     private void deleteSentMessage(final int position, final MessageViewHolder holder) {
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         rootRef.child("Messages").child(UserMessageList.get(position).getFrom())
-                .child(UserMessageList.get(position).getTo()).child(UserMessageList.get(position).getMessageID())
+                .child(UserMessageList.get(position).getTo())
+                .child(UserMessageList.get(position).getMessageID())
                 .removeValue().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         notifyItemRemoved(position);
@@ -171,7 +172,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     private void deleteMessageForEveryone(final int position, final MessageViewHolder holder) {
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         rootRef.child("Messages").child(UserMessageList.get(position).getFrom())
-                .child(UserMessageList.get(position).getTo()).child(UserMessageList.get(position).getMessageID())
+                .child(UserMessageList.get(position).getTo())
+                .child(UserMessageList.get(position).getMessageID())
                 .removeValue().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         DatabaseReference rootRef1 = FirebaseDatabase.getInstance().getReference();

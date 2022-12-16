@@ -38,19 +38,6 @@ public class ScreenActivity extends AppCompatActivity {
         skipbtn = findViewById(R.id.btn_skip);
         imgv_next = findViewById(R.id.imgv_next);
 
-        //    backbtn.setOnClickListener(new View.OnClickListener() {
-        //       @Override
-        //        public void onClick(View v) {
-//
-        //             if (getitem(0) > 0){
-//
-        //                mSLideViewPager.setCurrentItem(getitem(-1),true);
-
-        //           }
-//
-        //       }
-        //  });
-
         imgv_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,16 +109,6 @@ public class ScreenActivity extends AppCompatActivity {
         public void onPageSelected(int position) {
 
             setUpindicator(position);
-
-            //      if (position > 0){
-//
-            //          backbtn.setVisibility(View.VISIBLE);
-
-            //      }else {
-
-            //         backbtn.setVisibility(View.INVISIBLE);
-
-            //     }
 
         }
 

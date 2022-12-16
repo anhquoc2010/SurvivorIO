@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cuoiki_android_lythuyet.databinding.ActivityRequestDetailBinding;
 import com.example.cuoiki_android_lythuyet.models.Bookings;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +35,7 @@ public class RequestDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRequestDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Tag.setTagOnline("online");
 
         mAuth = FirebaseAuth.getInstance();
         keeperRef = FirebaseDatabase.getInstance().getReference().child("Keepers");
@@ -84,5 +86,11 @@ public class RequestDetail extends AppCompatActivity {
         binding.btnCancle.setOnClickListener(v -> {
             onBackPressed();
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

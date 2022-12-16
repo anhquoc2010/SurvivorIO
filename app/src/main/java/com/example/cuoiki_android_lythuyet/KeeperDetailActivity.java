@@ -40,6 +40,7 @@ public class KeeperDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityKeeperDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Tag.setTagOnline("online");
 
         mauth = FirebaseAuth.getInstance();
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -93,5 +94,11 @@ public class KeeperDetailActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

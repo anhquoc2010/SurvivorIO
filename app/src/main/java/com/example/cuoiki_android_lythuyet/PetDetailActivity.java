@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cuoiki_android_lythuyet.adapter.GalleryAdapter;
 import com.example.cuoiki_android_lythuyet.databinding.ActivityPetDetailBinding;
 import com.example.cuoiki_android_lythuyet.models.Pet;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class PetDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPetDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Tag.setTagOnline("online");
 
         getBundle();
         createChips();
@@ -80,5 +82,11 @@ public class PetDetailActivity extends AppCompatActivity {
         images.add(R.drawable.pet3);
         images.add(R.drawable.pet5);
         images.add(R.drawable.pet1);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

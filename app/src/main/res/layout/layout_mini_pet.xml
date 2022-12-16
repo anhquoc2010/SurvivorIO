@@ -27,8 +27,8 @@
             android:layout_centerHorizontal="true"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
-            tools:src="@tools:sample/avatars"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            tools:src="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 
     <TextView

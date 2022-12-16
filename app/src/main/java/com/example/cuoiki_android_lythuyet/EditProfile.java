@@ -1,6 +1,5 @@
 package com.example.cuoiki_android_lythuyet;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -39,7 +38,6 @@ public class EditProfile extends AppCompatActivity {
     String photoUri;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -47,6 +45,8 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.progressBar.setVisibility(View.VISIBLE);
 
         ActivityResultLauncher<Intent> startActivityForResult = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -82,9 +82,14 @@ public class EditProfile extends AppCompatActivity {
 
         binding.buttonSignup.setOnClickListener(v -> UpdateSettings());
 
+        binding.imageView5.setOnClickListener(v -> {
+            onBackPressed();
+        });
+
         RetrieveUserInfo();
 
         binding.imageView19.setOnClickListener(v -> {
+            binding.progressBar.setVisibility(View.VISIBLE);
             Intent galleryIntent = new Intent();
             galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
             galleryIntent.setType("image/*");
@@ -106,7 +111,7 @@ public class EditProfile extends AppCompatActivity {
                     binding.editTextUsername.setText(retrieveusername);
                     binding.editTextEmail.setText(retrieveuseremail);
                     Log.d("1", retrieveuserimage);
-                    Picasso.get().load(retrieveuserimage).into(binding.imageView19);
+                    Picasso.get().load(retrieveuserimage).placeholder(R.drawable.pet2).into(binding.imageView19);
                     Log.d("2", String.valueOf(binding.imageView19));
                 } else if (dataSnapshot.exists() && dataSnapshot.hasChild("name") && dataSnapshot.hasChild("email")) {
                     String retrieveusername = dataSnapshot.child("name").getValue().toString();
@@ -121,6 +126,7 @@ public class EditProfile extends AppCompatActivity {
                 } else {
                     Toast.makeText(EditProfile.this, "Please update your profile information", Toast.LENGTH_SHORT).show();
                 }
+                binding.progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -151,5 +157,11 @@ public class EditProfile extends AppCompatActivity {
             });
 
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RetrieveUserInfo();
     }
 }

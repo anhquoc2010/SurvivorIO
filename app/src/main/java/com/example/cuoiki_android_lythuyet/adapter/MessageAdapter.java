@@ -2,9 +2,6 @@ package com.example.cuoiki_android_lythuyet.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.models.Messages;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,7 +57,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild("image")) {
                     String receiverprofileimage = dataSnapshot.child("image").getValue().toString();
-                    Picasso.get().load(receiverprofileimage).placeholder(R.drawable.profile_circle_inactive).into(holder.receiverprofileimage);
+                    Picasso.get().load(receiverprofileimage).placeholder(R.drawable.pet2).into(holder.receiverprofileimage);
                 } else {
                     holder.receiverprofileimage.setImageResource(R.drawable.pet2);
                 }

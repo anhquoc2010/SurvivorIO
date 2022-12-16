@@ -1,15 +1,15 @@
 package com.example.cuoiki_android_lythuyet.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.databinding.FragmentBookingBinding;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 
 public class BookingFragment extends Fragment {
 
@@ -21,42 +21,46 @@ public class BookingFragment extends Fragment {
 
         binding = FragmentBookingBinding.inflate(inflater, container, false);
 
-        getChildFragmentManager().beginTransaction().setCustomAnimations(
-                        R.anim.slide_in,  // enter
-                        R.anim.fade_out,  // exit
-                        R.anim.fade_in,   // popEnter
-                        R.anim.slide_out  // popExit
-                )
-                .replace(R.id.fragment_container, new BookingsFragment())
-                .addToBackStack(null)
-                .commit();
+        if (Tag.getTagBooking().equals("toRequest")) {
+            binding.topNavigation.setSelectedItemId(R.id.requests_page);
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new RequestsFragment())
+                    .addToBackStack(null)
+                    .commit();
+            Tag.setTagBooking("");
+        } else {
+            binding.topNavigation.setSelectedItemId(R.id.bookings_page);
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new BookingsFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
 
         binding.topNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bookings_page:
-                    getChildFragmentManager().beginTransaction().setCustomAnimations(
-                                    R.anim.slide_in,  // enter
-                                    R.anim.fade_out,  // exit
-                                    R.anim.fade_in,   // popEnter
-                                    R.anim.slide_out  // popExit
-                            )
+                    getChildFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new BookingsFragment())
                             .addToBackStack(null)
                             .commit();
                     return true;
                 case R.id.requests_page:
-                    getChildFragmentManager().beginTransaction().setCustomAnimations(
-                                    R.anim.slide_in,  // enter
-                                    R.anim.fade_out,  // exit
-                                    R.anim.fade_in,   // popEnter
-                                    R.anim.slide_out  // popExit
-                            )
+                    getChildFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new RequestsFragment())
                             .addToBackStack(null)
                             .commit();
                     return true;
             }
             return false;
+        });
+
+        binding.topNavigation.setOnItemReselectedListener(item -> {
+            // Handle navigation item reselection
+            switch (item.getItemId()) {
+                case R.id.bookings_page:
+                case R.id.requests_page:
+                    break;
+            }
         });
 
         // Inflate the layout for this fragment

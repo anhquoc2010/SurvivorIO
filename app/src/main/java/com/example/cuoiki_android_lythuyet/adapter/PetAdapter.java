@@ -1,7 +1,6 @@
 package com.example.cuoiki_android_lythuyet.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -102,7 +101,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         bundle.putSerializable("petsaved", pet);
         intent.putExtras(bundle);
         context.startActivity(intent);
-        ((Activity) context).overridePendingTransition(R.anim.slide_in, R.anim.fade_out);
     }
 
     private void onClickDetailPet(Pet pet) {
@@ -111,7 +109,6 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         bundle.putSerializable("pet", pet);
         intent.putExtras(bundle);
         context.startActivity(intent);
-        ((Activity) context).overridePendingTransition(R.anim.slide_in, R.anim.fade_out);
     }
 
     @Override
@@ -121,11 +118,12 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.ViewHolder> {
         } else
             return 0;
     }
-    public void release(){
+
+    public void release() {
         context = null;
     }
 
-    public void removeItem(int index){
+    public void removeItem(int index) {
         petsList.remove(index);
         notifyItemRemoved(index);
         notifyDataSetChanged();

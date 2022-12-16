@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cuoiki_android_lythuyet.KeeperDetailActivity;
 import com.example.cuoiki_android_lythuyet.PetListActivity;
 import com.example.cuoiki_android_lythuyet.R;
 import com.example.cuoiki_android_lythuyet.RequestDetail;
@@ -31,8 +30,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RequestsFragment extends Fragment {
@@ -41,11 +38,14 @@ public class RequestsFragment extends Fragment {
     private DatabaseReference bookingRef, userRef;
     private FirebaseAuth mAuth;
     private String userID;
+    private int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentRequestsBinding.inflate(inflater, container, false);
+
+        binding.progressBar.setVisibility(View.VISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getCurrentUser().getUid();
@@ -64,16 +64,23 @@ public class RequestsFragment extends Fragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
+
         Tag.setTag("request");
 
         FirebaseRecyclerOptions<Bookings> options = new FirebaseRecyclerOptions.Builder<Bookings>()
                 .setQuery(bookingRef, Bookings.class).build();
 
-        FirebaseRecyclerAdapter<Bookings, RequestsFragment.BookingViewHolder> adapter = new FirebaseRecyclerAdapter<Bookings, RequestsFragment.BookingViewHolder>(options) {
+        FirebaseRecyclerAdapter<Bookings, BookingViewHolder> adapter = new FirebaseRecyclerAdapter<Bookings, BookingViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final RequestsFragment.BookingViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Bookings model) {
+            protected void onBindViewHolder(@NonNull final BookingViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Bookings model) {
                 bookingRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot databkSnapshot) {
@@ -81,12 +88,31 @@ public class RequestsFragment extends Fragment {
                         Log.d("lamon", "onBindViewHolder: " + bookingID);
                         Log.d("lamon", "onBindViewHolder: " + userID);
                         Log.d("lamon", "onBindViewHolder: " + databkSnapshot.child(bookingID).child("userSend").getValue());
-                        holder.status.setText(databkSnapshot.child(bookingID).child("status").getValue().toString());
-                        holder.date.setText(databkSnapshot.child(bookingID).child("calendar").getValue().toString());
-                        holder.price.setText(databkSnapshot.child(bookingID).child("price").getValue().toString());
                         if (databkSnapshot.child(bookingID).child("userSend").getValue().toString().equals(userID)) {
+                            count++;
+                            final String userSendId = databkSnapshot.child(bookingID).child("userSend").getValue().toString();
                             final String userReceiveId = databkSnapshot.child(bookingID).child("userReceive").getValue().toString();
                             final String[] image = {"default_image"};
+                            holder.status.setText(databkSnapshot.child(bookingID).child("status").getValue().toString());
+                            holder.date.setText(databkSnapshot.child(bookingID).child("calendar").getValue().toString());
+                            holder.price.setText(databkSnapshot.child(bookingID).child("price").getValue().toString());
+
+                            userRef.child(userSendId).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()) {
+                                        final String name = dataSnapshot.child("name").getValue().toString();
+
+                                        holder.user_send_name.setText(name);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
                             userRef.child(userReceiveId).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,16 +120,16 @@ public class RequestsFragment extends Fragment {
                                         Log.d("hehehe", "onDataChange: " + dataSnapshot.hasChild("image"));
                                         if (dataSnapshot.hasChild("image")) {
                                             image[0] = dataSnapshot.child("image").getValue().toString();
-                                            Picasso.get().load(image[0]).placeholder(R.drawable.avt2).into(holder.profile_image);
+                                            Picasso.get().load(image[0]).placeholder(R.drawable.pet2).into(holder.profile_image);
                                         } else {
-                                            holder.profile_image.setImageResource(R.drawable.avt2);
+                                            holder.profile_image.setImageResource(R.drawable.pet2);
                                         }
                                         final String name = dataSnapshot.child("name").getValue().toString();
 
                                         holder.username.setText(name);
 
                                         holder.itemView.setOnClickListener(v -> {
-                                            Intent keeperIntent = new Intent(getActivity(), RequestDetail.class);
+                                            Intent keeperIntent = new Intent(getContext(), RequestDetail.class);
                                             keeperIntent.putExtra("visit_user_id", userReceiveId);
                                             keeperIntent.putExtra("visit_user_name", name);
                                             keeperIntent.putExtra("visit_image", image[0]);
@@ -121,10 +147,16 @@ public class RequestsFragment extends Fragment {
 
                         } else {
                             holder.itemView.setVisibility(View.GONE);
-                            ViewGroup.LayoutParams params = holder.itemView.getLayoutParams();
+                            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) holder.itemView.getLayoutParams();
                             params.height = 0;
                             params.width = 0;
+                            params.setMargins(0, 0, 0, 0);
                             holder.itemView.setLayoutParams(params);
+                            if (count == 0) {
+                                binding.tvNotification.setVisibility(View.VISIBLE);
+                            } else {
+                                binding.tvNotification.setVisibility(View.GONE);
+                            }
                         }
                     }
 
@@ -134,13 +166,14 @@ public class RequestsFragment extends Fragment {
                     }
                 });
 
+                binding.progressBar.setVisibility(View.GONE);
             }
 
             @NonNull
             @Override
-            public RequestsFragment.BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.owner_request_row_item, parent, false);
-                return new RequestsFragment.BookingViewHolder(view);
+                return new BookingViewHolder(view);
             }
         };
 
@@ -151,7 +184,7 @@ public class RequestsFragment extends Fragment {
     public static class BookingViewHolder extends RecyclerView.ViewHolder {
 
         CircleImageView profile_image;
-        TextView name, username, status, date, response, price;
+        TextView name, username, status, date, price, user_send_name;
 
         public BookingViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -161,8 +194,8 @@ public class RequestsFragment extends Fragment {
             date = itemView.findViewById(R.id.tvCalendar);
             profile_image = itemView.findViewById(R.id.img_request_booking);
             username = itemView.findViewById(R.id.tvName);
-            response = itemView.findViewById(R.id.tvResponse);
             price = itemView.findViewById(R.id.tvPrice);
+            user_send_name = itemView.findViewById(R.id.tvResponse);
         }
     }
 

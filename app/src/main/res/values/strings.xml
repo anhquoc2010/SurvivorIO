@@ -23,7 +23,6 @@
     <string name="pets">Pets</string>
     <string name="friends">Friends</string>
     <string name="about_me">About me</string>
-    <string name="edit">Edit</string>
     <string name="birth_date">Birth date:</string>
     <string name="my_birth">09 Sep 2002</string>
     <string name="gender_">Gender:</string>
@@ -53,4 +52,6 @@
     <string name="mail">petbooking@gmail.com</string>
     <string name="meet_your_cutest_friends">🐶 Meet your cutest friends 🐱</string>
     <string name="pets_list">Pets List</string>
+    <string name="verification">Verification</string>
+    <string name="location">Location</string>
 </resources>

@@ -108,7 +108,7 @@ public class ProfileFragment extends Fragment {
         addPets();
         addGallery();
 
-        binding.tvPetsCount.setText(getResources().getString(R.string.count, 5));
+        binding.tvPetsCount.setText(getResources().getString(R.string.count, pets.size()));
         binding.tvFriendsCount.setText(getResources().getString(R.string.count, 20));
 
         petAdapter = new MiniPetAdapter(getContext(), pets);

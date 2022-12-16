@@ -1,9 +1,5 @@
 package com.example.cuoiki_android_lythuyet;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuoiki_android_lythuyet.databinding.ActivityListKeeperSavedBinding;
 import com.example.cuoiki_android_lythuyet.models.Keepers;
@@ -71,6 +71,29 @@ public class ListKeeperSaved extends AppCompatActivity {
                 if (!getRef(position).getKey().equals(userID)) {
                     final String userid = getRef(position).getKey();
                     final String[] image = {"default_image"};
+
+                    keeperRef.child(userid).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                final String distance = dataSnapshot.child("distance").getValue().toString();
+                                final String price = dataSnapshot.child("price").getValue().toString();
+                                final String review = dataSnapshot.child("review").getValue().toString();
+                                final String star = dataSnapshot.child("star").getValue().toString();
+
+                                holder.distance.setText(distance);
+                                holder.price.setText(price);
+                                holder.review.setText(review);
+                                holder.star.setText(star);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                     userRef.child(userid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

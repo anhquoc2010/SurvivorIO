@@ -38,28 +38,28 @@ public class ScreenActivity extends AppCompatActivity {
         skipbtn = findViewById(R.id.btn_skip);
         imgv_next = findViewById(R.id.imgv_next);
 
-    //    backbtn.setOnClickListener(new View.OnClickListener() {
-     //       @Override
-    //        public void onClick(View v) {
+        //    backbtn.setOnClickListener(new View.OnClickListener() {
+        //       @Override
+        //        public void onClick(View v) {
 //
-   //             if (getitem(0) > 0){
+        //             if (getitem(0) > 0){
 //
-    //                mSLideViewPager.setCurrentItem(getitem(-1),true);
+        //                mSLideViewPager.setCurrentItem(getitem(-1),true);
 
-     //           }
+        //           }
 //
-     //       }
-      //  });
+        //       }
+        //  });
 
         imgv_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (getitem(0) < 3)
-                    mSLideViewPager.setCurrentItem(getitem(1),true);
+                    mSLideViewPager.setCurrentItem(getitem(1), true);
                 else {
 
-                    Intent i = new Intent(ScreenActivity.this,ScreenActivity2.class);
+                    Intent i = new Intent(ScreenActivity.this, ScreenActivity2.class);
                     startActivity(i);
                     finish();
 
@@ -72,7 +72,7 @@ public class ScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(ScreenActivity.this,ScreenActivity2.class);
+                Intent i = new Intent(ScreenActivity.this, ScreenActivity2.class);
                 startActivity(i);
                 finish();
 
@@ -92,22 +92,22 @@ public class ScreenActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    public void setUpindicator(int position){
+    public void setUpindicator(int position) {
 
         dots = new TextView[4];
         mDotLayout.removeAllViews();
 
-        for (int i = 0 ; i < dots.length ; i++){
+        for (int i = 0; i < dots.length; i++) {
 
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.inactive,getApplicationContext().getTheme()));
+            dots[i].setTextColor(getResources().getColor(R.color.inactive, getApplicationContext().getTheme()));
             mDotLayout.addView(dots[i]);
 
         }
 
-        dots[position].setTextColor(getResources().getColor(R.color.light_green,getApplicationContext().getTheme()));
+        dots[position].setTextColor(getResources().getColor(R.color.light_green, getApplicationContext().getTheme()));
 
     }
 
@@ -123,15 +123,15 @@ public class ScreenActivity extends AppCompatActivity {
 
             setUpindicator(position);
 
-      //      if (position > 0){
+            //      if (position > 0){
 //
-      //          backbtn.setVisibility(View.VISIBLE);
+            //          backbtn.setVisibility(View.VISIBLE);
 
-      //      }else {
+            //      }else {
 
-       //         backbtn.setVisibility(View.INVISIBLE);
+            //         backbtn.setVisibility(View.INVISIBLE);
 
-       //     }
+            //     }
 
         }
 
@@ -141,7 +141,7 @@ public class ScreenActivity extends AppCompatActivity {
         }
     };
 
-    private int getitem(int i){
+    private int getitem(int i) {
 
         return mSLideViewPager.getCurrentItem() + i;
     }

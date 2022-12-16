@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -66,33 +66,33 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView19"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/imageView19">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:textSize="18sp"
             android:layout_marginTop="20dp"
+            android:text="Name"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView19" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Enter Name"
-            app:hintTextColor="@color/material_on_background_emphasis_high_type"
             app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
             app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/material_on_background_emphasis_high_type">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextUsername"
@@ -105,22 +105,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
-            android:textSize="18sp"
             android:layout_marginTop="20dp"
+            android:text="Email"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView19" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="Enter Email"
-            app:hintTextColor="@color/material_on_background_emphasis_high_type"
             app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
             app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text">
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/material_on_background_emphasis_high_type">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextEmail"
@@ -135,18 +135,29 @@
             android:id="@+id/button_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
             android:layout_marginTop="30dp"
-            app:icon="@drawable/ic_baseline_edit_calendar_24"
-            app:iconTint="#fff"
-            android:padding="10dp"
-            android:textStyle="bold"
-            app:iconGravity="textStart"
-            android:textAlignment="center"
             android:backgroundTint="#336666"
+            android:padding="10dp"
+            android:text="Update"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:text="Update" />
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_edit_calendar_24"
+            app:iconGravity="textStart"
+            app:iconTint="#fff" />
 
     </LinearLayout>
 
+    <!--ProgressBar-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

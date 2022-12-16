@@ -47,6 +47,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
+        binding.progressBar.setVisibility(View.VISIBLE);
 
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -83,7 +84,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot snapshot) {
                 if (snapshot.exists() && snapshot.hasChild("name") && snapshot.hasChild("email") && snapshot.hasChild("image")) {
-                    Picasso.get().load(snapshot.child("image").getValue().toString()).into(binding.ivAvatarProfile);
+                    Picasso.get().load(snapshot.child("image").getValue().toString()).placeholder(R.drawable.pet2).into(binding.ivAvatarProfile);
                     binding.tvNameProfile.setText(snapshot.child("name").getValue().toString());
                     binding.tvMailProfile.setText(snapshot.child("email").getValue().toString());
                 } else if (snapshot.exists() && snapshot.hasChild("name") && snapshot.hasChild("email")) {
@@ -95,6 +96,7 @@ public class ProfileFragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Please update your profile information...", Toast.LENGTH_SHORT).show();
                 }
+                binding.progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -132,7 +134,9 @@ public class ProfileFragment extends Fragment {
         pets.add(new Pet("Shibaxianua", "Chihuahua", false, 12, 100.2, 150.12, "B&W", "grrrrr", R.drawable.pet2));
         pets.add(new Pet("Hanakem Cheese", "Maddog", false, 3, 15.6, 30.77, "White", "angang", R.drawable.pet3));
         pets.add(new Pet("Betting Helloyboy", "Beandog", true, 2, 140.2, 70.2, "Gray", "ecec", R.drawable.pet4));
-        pets.add(new Pet("Brusk", "Cherry", false, 1, 140.2, 70.2, "Gray", "kiiiii", R.drawable.pet5));
+        pets.add(new Pet("Brusk", "Cherry", false, 1, 140.2, 70.2, "Orange", "kiiiii", R.drawable.pet5));
+        pets.add(new Pet("Kinding", "Calmdog", true, 3, 140.2, 70.2, "Green", "kaka", R.drawable.pet6));
+        pets.add(new Pet("Hem", "England Short", true, 4, 140.2, 70.2, "Light Yellow", "hihi", R.drawable.pet3));
     }
 
     private void addGallery() {

@@ -42,7 +42,7 @@ public class ViewPagerAdapter extends PagerAdapter {
             R.string.desc_fourth
     };
 
-    public ViewPagerAdapter(Context context){
+    public ViewPagerAdapter(Context context) {
 
         this.context = context;
 
@@ -50,7 +50,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return  headings.length;
+        return headings.length;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.slider_layout,container,false);
+        View view = layoutInflater.inflate(R.layout.slider_layout, container, false);
 
         ImageView slidetitleimage = (ImageView) view.findViewById(R.id.imgv_title);
         TextView slideHeading = (TextView) view.findViewById(R.id.tv_title);
@@ -82,7 +82,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
 
-        container.removeView((LinearLayout)object);
+        container.removeView((LinearLayout) object);
 
     }
 }

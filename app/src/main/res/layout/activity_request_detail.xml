@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -45,10 +45,10 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:text="Booking"
         android:textColor="#000"
-        android:layout_marginStart="5dp"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView18"
@@ -139,12 +139,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="26dp"
         android:text="21 May 12:30 - 18:00"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -161,12 +160,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="18dp"
         android:text="Sasuke, Semen Mixa Alexder the First"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -174,8 +172,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
-        android:backgroundTint="#757373"
         android:background="@drawable/outline_place_black_24dp"
+        android:backgroundTint="#757373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
@@ -184,12 +182,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="18dp"
         android:text="Sơn Trà, Đà Nẵng"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -207,12 +204,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="18dp"
         android:text="0123456789"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -230,32 +226,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="18dp"
         android:text="Total: "
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:layout_marginTop="19dp"
         android:background="@drawable/outline_attach_money_black_24dp"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/tv_price_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
         android:text="154"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -273,33 +266,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="18dp"
         android:text="Card"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
     <TextView
         android:layout_width="62dp"
         android:layout_height="17dp"
+        android:layout_marginStart="10dp"
         android:text="**** 1111"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="18dp"
         app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:text="My dog is incredibly and unconditionally loyal"
         android:textColor="@color/black"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -309,8 +300,8 @@
         android:layout_height="5dp"
         android:layout_marginTop="20dp"
         android:background="#DDDDDD"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -370,7 +361,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tv_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -398,6 +389,7 @@
             android:background="@drawable/star" />
 
         <TextView
+            android:id="@+id/tv_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -413,14 +405,15 @@
         android:background="@drawable/straight"
         android:backgroundTint="#E9E9E9"
         app:layout_constraintStart_toEndOf="@+id/linearLayout6"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_distance" />
 
     <TextView
+        android:id="@+id/tv_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
         android:text="10 reviews"
         android:textColor="#757373"
-        android:layout_marginTop="42dp"
         app:layout_constraintStart_toEndOf="@+id/imageView15"
         app:layout_constraintTop_toBottomOf="@+id/tvName_request_detail" />
 
@@ -442,9 +435,9 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         android:text="Message"
-        android:textStyle="bold"
         android:textColor="#336666"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imgv_message"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -463,11 +456,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
         android:text="Call"
         android:textColor="#336666"
         android:textSize="15sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView17"
         app:layout_constraintTop_toBottomOf="@+id/tv_message" />
@@ -475,47 +468,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintTop_toBottomOf="@+id/imageView15">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_cancle"
-            android:layout_width="131dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            app:strokeWidth="1dp"
-            app:icon="@drawable/cancel"
-            app:iconTint="#336666"
-            app:iconGravity="textStart"
-            app:strokeColor="#336666"
-            android:text="Cancel"
             android:padding="10dp"
+            android:text="Cancel"
             android:textColor="#336666"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:icon="@drawable/cancel"
+            app:iconGravity="textStart"
+            app:iconTint="#336666"
+            app:strokeColor="#336666"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textSize="12sp"
-            app:icon="@drawable/ic_baseline_edit_calendar_24"
-            app:iconTint="#fff"
-            android:padding="10dp"
-            android:textStyle="bold"
-            app:iconGravity="textStart"
-            android:textAlignment="center"
-            android:backgroundTint="#336666"
-            android:textColor="@color/white"
             android:layout_weight="1"
-            android:text="Confirm" />
+            android:backgroundTint="#336666"
+            android:padding="10dp"
+            android:text="Confirm"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_edit_calendar_24"
+            app:iconGravity="textStart"
+            app:iconTint="#fff" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 package com.example.cuoiki_android_lythuyet.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,7 +56,6 @@ public class MiniPetAdapter extends RecyclerView.Adapter<MiniPetAdapter.ViewHold
         bundle.putSerializable("pet", pet);
         intent.putExtras(bundle);
         context.startActivity(intent);
-        ((Activity) context).overridePendingTransition(R.anim.slide_in, R.anim.fade_out);
     }
 
     @Override

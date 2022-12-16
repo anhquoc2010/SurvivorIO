@@ -29,99 +29,99 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Username"
             android:layout_marginTop="35dp"
-            app:hintTextColor="@color/black"
+            android:hint="Username"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
-            app:startIconDrawable="@drawable/ic_baseline_person_24"
-            app:startIconTint="@color/black"
             app:endIconMode="clear_text"
-            app:endIconTint="@color/black">
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:startIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextUsername"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Email"
             android:layout_marginTop="8dp"
-            app:hintTextColor="@color/black"
+            android:hint="Email"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
-            app:startIconDrawable="@drawable/ic_baseline_email_24"
-            app:startIconTint="@color/black"
             app:endIconMode="clear_text"
-            app:endIconTint="@color/black">
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/ic_baseline_email_24"
+            app:startIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Password"
             android:layout_marginTop="8dp"
-            app:hintTextColor="@color/black"
+            android:hint="Password"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
-            app:startIconDrawable="@drawable/ic_baseline_lock_24"
-            app:startIconTint="@color/black"
             app:endIconMode="password_toggle"
-            app:endIconTint="@color/black">
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            app:startIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_Password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Re-Enter Password"
             android:layout_marginTop="8dp"
-            app:hintTextColor="@color/black"
+            android:hint="Re-Enter Password"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
-            app:startIconDrawable="@drawable/ic_baseline_lock_24"
-            app:startIconTint="@color/black"
             app:endIconMode="password_toggle"
-            app:endIconTint="@color/black">
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            app:startIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_RePasswork"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

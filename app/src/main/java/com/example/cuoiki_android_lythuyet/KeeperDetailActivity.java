@@ -1,18 +1,19 @@
 package com.example.cuoiki_android_lythuyet;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.cuoiki_android_lythuyet.databinding.ActivityKeeperDetailBinding;
 import com.example.cuoiki_android_lythuyet.models.Bookings;
 import com.example.cuoiki_android_lythuyet.models.Keepers;
 import com.example.cuoiki_android_lythuyet.models.Pet;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,13 +54,16 @@ public class KeeperDetailActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild("image")) {
                     String receiverprofileimage = dataSnapshot.child("image").getValue().toString();
-                    Picasso.get().load(receiverprofileimage).placeholder(R.drawable.profile_circle_inactive).into(binding.ivAvatarProfile);
+                    Picasso.get().load(receiverprofileimage).placeholder(R.drawable.pet2).into(binding.ivAvatarProfile);
                 } else {
                     binding.ivAvatarProfile.setImageResource(R.drawable.pet2);
                 }
                 binding.tvNameProfile.setText(dataSnapshot.child("name").getValue().toString());
-                binding.tvPetsCount.setText(String.valueOf(Math.floor(Math.random() * 10) + 1));
-                binding.tvFriendsCount.setText(String.valueOf(Math.floor(Math.random() * 10) + 1));
+                if (dataSnapshot.hasChild("email")) {
+                    binding.tvMailProfile.setText(dataSnapshot.child("email").getValue().toString());
+                }
+                binding.tvPetsCount.setText(String.valueOf((int) (Math.floor(Math.random() * 10) + 1)));
+                binding.tvFriendsCount.setText(String.valueOf((int) (Math.floor(Math.random() * 10) + 1)));
             }
 
             @Override
@@ -83,11 +87,11 @@ public class KeeperDetailActivity extends AppCompatActivity {
                 Bookings bookings = new Bookings(name, status, saveCurrentDatetime, pet.getName(), keeper.getPrice(), currentUserID, keeperID);
                 Log.d("hehehehe", "onClick: " + bookings.toString());
                 RootRef.child("Bookings").push().setValue(bookings);
+                Tag.setTagBooking("toRequest");
                 Intent intent = new Intent(KeeperDetailActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-
 
     }
 }

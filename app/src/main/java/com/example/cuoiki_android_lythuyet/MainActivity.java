@@ -12,6 +12,7 @@ import com.example.cuoiki_android_lythuyet.fragments.BookingFragment;
 import com.example.cuoiki_android_lythuyet.fragments.HomeFragment;
 import com.example.cuoiki_android_lythuyet.fragments.InboxFragment;
 import com.example.cuoiki_android_lythuyet.fragments.ProfileFragment;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -46,15 +47,25 @@ public class MainActivity extends AppCompatActivity {
         } else {
             updateUserStatus("online");
 
-            getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                            R.anim.slide_in,  // enter
-                            R.anim.fade_out,  // exit
-                            R.anim.fade_in,   // popEnter
-                            R.anim.slide_out  // popExit
-                    )
-                    .replace(R.id.fragment_container, new HomeFragment())
-                    .addToBackStack(null)
-                    .commit();
+            if (Tag.getTagBooking().equals("toRequest")) {
+                binding.bottomNavigation.setSelectedItemId(R.id.booking_page);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                }
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new BookingFragment())
+                        .addToBackStack(null)
+                        .commit();
+            } else {
+                binding.bottomNavigation.setSelectedItemId(R.id.home_page);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                }
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new HomeFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
         }
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
@@ -63,12 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                     }
-                    getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                                    R.anim.slide_in,  // enter
-                                    R.anim.fade_out,  // exit
-                                    R.anim.fade_in,   // popEnter
-                                    R.anim.slide_out  // popExit
-                            )
+                    getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new HomeFragment())
                             .addToBackStack(null)
                             .commit();
@@ -77,12 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                     }
-                    getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                                    R.anim.slide_in,  // enter
-                                    R.anim.fade_out,  // exit
-                                    R.anim.fade_in,   // popEnter
-                                    R.anim.slide_out  // popExit
-                            )
+                    getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new BookingFragment())
                             .addToBackStack(null)
                             .commit();
@@ -91,12 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | /*View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |*/ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                     }
-                    getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                                    R.anim.slide_in,  // enter
-                                    R.anim.fade_out,  // exit
-                                    R.anim.fade_in,   // popEnter
-                                    R.anim.slide_out  // popExit
-                            )
+                    getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new InboxFragment())
                             .addToBackStack(null)
                             .commit();
@@ -105,12 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                     }
-                    getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                                    R.anim.slide_in,  // enter
-                                    R.anim.fade_out,  // exit
-                                    R.anim.fade_in,   // popEnter
-                                    R.anim.slide_out  // popExit
-                            )
+                    getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, new ProfileFragment())
                             .addToBackStack(null)
                             .commit();

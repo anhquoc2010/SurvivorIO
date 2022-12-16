@@ -67,10 +67,13 @@ public class SignupActivity extends AppCompatActivity {
                         RootRef.child("Users").child(currentUserID).setValue("");
                         RootRef.child("Users").child(currentUserID).child("device_token").setValue(deviceToken)
                                 .addOnCompleteListener(task1 -> {
-                                    SendUserToMainActivity();
-                                    Toast.makeText(SignupActivity.this, "Account created Successfully...", Toast.LENGTH_SHORT).show();
+                                    if (task1.isSuccessful()) {
+                                        SendUserToMainActivity();
+                                        Toast.makeText(SignupActivity.this, "Account created Successfully...", Toast.LENGTH_SHORT).show();
+                                    }
                                 });
                         RootRef.child("Users").child(currentUserID).child("name").setValue(username);
+                        RootRef.child("Users").child(currentUserID).child("email").setValue(email);
                         RootRef.child("Keepers").child(currentUserID).child("name").setValue(username);
                         RootRef.child("Keepers").child(currentUserID).child("distance").setValue(String.valueOf(Math.floor(Math.random() * 100) + 1) + " km away");
                         RootRef.child("Keepers").child(currentUserID).child("star").setValue(String.valueOf(Math.floor(Math.random() * 5) + 1));

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cuoiki_android_lythuyet.databinding.ActivityListKeeperSavedBinding;
 import com.example.cuoiki_android_lythuyet.models.Keepers;
 import com.example.cuoiki_android_lythuyet.models.Pet;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,6 +45,7 @@ public class ListKeeperSaved extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityListKeeperSavedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Tag.setTagOnline("online");
 
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getCurrentUser().getUid();
@@ -160,5 +162,11 @@ public class ListKeeperSaved extends AppCompatActivity {
             review = itemView.findViewById(R.id.tv_preview_booking);
             price = itemView.findViewById(R.id.tv_price_booking);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

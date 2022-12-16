@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cuoiki_android_lythuyet.adapter.MessageAdapter;
 import com.example.cuoiki_android_lythuyet.databinding.ActivityInboxBinding;
 import com.example.cuoiki_android_lythuyet.models.Messages;
+import com.example.cuoiki_android_lythuyet.tag.Tag;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -48,6 +49,7 @@ public class InboxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityInboxBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Tag.setTagOnline("online");
 
         mauth = FirebaseAuth.getInstance();
         messageSenderId = mauth.getCurrentUser().getUid();
@@ -165,5 +167,11 @@ public class InboxActivity extends AppCompatActivity {
                 binding.message.setText("");
             });
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Tag.setTagOnline("");
     }
 }

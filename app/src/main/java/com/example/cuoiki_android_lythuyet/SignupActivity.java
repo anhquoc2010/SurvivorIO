@@ -40,6 +40,7 @@ public class SignupActivity extends AppCompatActivity {
             binding.progressBar.setVisibility(View.VISIBLE);
             String email = binding.editTextEmail.getText().toString();
             String password = binding.etPassword.getText().toString();
+            String repass = binding.etRePasswork.getText().toString();
             String username = binding.editTextUsername.getText().toString();
 
             //check sign up username, password, email, retype password, size password, email valid
@@ -55,6 +56,9 @@ public class SignupActivity extends AppCompatActivity {
             } else if (password.length() < 6) {
                 binding.progressBar.setVisibility(View.GONE);
                 Toast.makeText(SignupActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            } else if (!password.equals(repass)) {
+                binding.progressBar.setVisibility(View.GONE);
+                Toast.makeText(SignupActivity.this, "Re-Password and Password does not match", Toast.LENGTH_SHORT).show();
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.progressBar.setVisibility(View.GONE);
                 Toast.makeText(SignupActivity.this, "Please enter a valid email", Toast.LENGTH_SHORT).show();
@@ -86,7 +90,8 @@ public class SignupActivity extends AppCompatActivity {
                     } else {
                         binding.progressBar.setVisibility(View.GONE);
                         String errorMessage = task.getException().toString();
-                        Toast.makeText(SignupActivity.this, "Error: " + errorMessage, Toast.LENGTH_LONG).show();
+                        String message = errorMessage.substring(errorMessage.indexOf(":") + 1);
+                        Toast.makeText(SignupActivity.this, "Error: " + message, Toast.LENGTH_LONG).show();
                     }
                 });
             }

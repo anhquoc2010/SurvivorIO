@@ -79,6 +79,11 @@ public class BookingsFragment extends Fragment {
                         Log.d("lamon", "onBindViewHolder: " + databkSnapshot.child(bookingID).child("userReceive").getValue());
                         if (databkSnapshot.child(bookingID).child("userReceive").getValue().toString().equals(userID)) {
                             count++;
+                            if (count == 0) {
+                                binding.tvNotification.setVisibility(View.VISIBLE);
+                            } else {
+                                binding.tvNotification.setVisibility(View.GONE);
+                            }
                             final String userReceiveId = databkSnapshot.child(bookingID).child("userReceive").getValue().toString();
                             final String[] image = {"default_image"};
                             final String userSendId = databkSnapshot.child(bookingID).child("userSend").getValue().toString();

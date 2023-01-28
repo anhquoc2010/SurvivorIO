@@ -1,4 +1,4 @@
-# SurvivorIO
+# SurvivorIO Download [APK](https://github.com/anhquoc2010/SurvivorIO/raw/develop/app/release/app-release.apk)
 **ĐẠI HỌC ĐÀ NẴNG**
 
 **TRƯỜNG ĐẠI HỌC SƯ PHẠM KỸ THUẬT**

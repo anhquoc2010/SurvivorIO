@@ -1,14 +1,6 @@
 
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-?
-settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-P
- app/release/output-metadata.json,0\7\079ee2b81fdfd2faf349bcf552fe1a1bc16be431
 e
 5app/src/release/res/mipmap-anydpi-v26/ic_launcher.xml,b\9\b9dfc9e95788fdcd41f25834712da2d2b52bea69
 e
@@ -43,3 +35,5 @@ Tapp/src/main/java/com/example/cuoiki_android_lythuyet/fragments/BookingFragment
 Uapp/src/main/java/com/example/cuoiki_android_lythuyet/fragments/RequestsFragment.java,f\c\fcd5a9cc642b33097cafb92aa113eb3d3f9f8587
 ƒ
 Sapp/src/main/java/com/example/cuoiki_android_lythuyet/adapter/ViewPagerAdapter.java,d\c\dc824f49ecd95f9803349e6a879987771d30d8fd
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
